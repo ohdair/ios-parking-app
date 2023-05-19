@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import NMapsMap
 
 class ParkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemIndigo
+
+        let mapView = NMFMapView(frame: view.frame)
+        view.addSubview(mapView)
     }
 }

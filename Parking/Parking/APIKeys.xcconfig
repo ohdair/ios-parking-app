@@ -1,0 +1,11 @@
+//
+//  Secrets.xcconfig
+//  Parking
+//
+//  Created by 박재우 on 2023/05/19.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+NAVER_MAP_KEY = 
