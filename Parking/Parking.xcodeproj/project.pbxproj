@@ -19,6 +19,11 @@
 		F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5C2A176628001F08DE /* NetworkError.swift */; };
 		F641FC5F2A176E1A001F08DE /* ParkingPlaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */; };
 		F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC602A19015E001F08DE /* NetworkRouter.swift */; };
+		F641FC632A190F1A001F08DE /* ParkingPlaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC622A190F1A001F08DE /* ParkingPlaceDTO.swift */; };
+		F641FC652A19100A001F08DE /* ParkingPlaceResultDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC642A19100A001F08DE /* ParkingPlaceResultDTO.swift */; };
+		F641FC682A19109A001F08DE /* ParkingPlaceHeaderDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC672A19109A001F08DE /* ParkingPlaceHeaderDTO.swift */; };
+		F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */; };
+		F641FC6C2A1911CD001F08DE /* ParkingPlaceItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,11 @@
 		F641FC5C2A176628001F08DE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceAPI.swift; sourceTree = "<group>"; };
 		F641FC602A19015E001F08DE /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		F641FC622A190F1A001F08DE /* ParkingPlaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceDTO.swift; sourceTree = "<group>"; };
+		F641FC642A19100A001F08DE /* ParkingPlaceResultDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceResultDTO.swift; sourceTree = "<group>"; };
+		F641FC672A19109A001F08DE /* ParkingPlaceHeaderDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceHeaderDTO.swift; sourceTree = "<group>"; };
+		F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceBodyDTO.swift; sourceTree = "<group>"; };
+		F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceItemDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 				F641FC402A1714B6001F08DE /* SceneDelegate.swift */,
 				F641FC422A1714B6001F08DE /* ParkingViewController.swift */,
 				F641FC572A176562001F08DE /* Network */,
+				F641FC662A191016001F08DE /* ParkingPlaceDTO */,
 				F641FC472A1714B7001F08DE /* Assets.xcassets */,
 				F641FC492A1714B7001F08DE /* LaunchScreen.storyboard */,
 				F641FC4C2A1714B7001F08DE /* Info.plist */,
@@ -105,6 +116,18 @@
 				F641FC5C2A176628001F08DE /* NetworkError.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		F641FC662A191016001F08DE /* ParkingPlaceDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F641FC622A190F1A001F08DE /* ParkingPlaceDTO.swift */,
+				F641FC642A19100A001F08DE /* ParkingPlaceResultDTO.swift */,
+				F641FC672A19109A001F08DE /* ParkingPlaceHeaderDTO.swift */,
+				F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */,
+				F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */,
+			);
+			path = ParkingPlaceDTO;
 			sourceTree = "<group>";
 		};
 		FEA8349D5923511AF5BD1D10 /* Pods */ = {
@@ -232,13 +255,18 @@
 			files = (
 				F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */,
 				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
+				F641FC652A19100A001F08DE /* ParkingPlaceResultDTO.swift in Sources */,
+				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,
 				F641FC5F2A176E1A001F08DE /* ParkingPlaceAPI.swift in Sources */,
 				F641FC5B2A176595001F08DE /* APICallable.swift in Sources */,
 				F641FC562A173EB9001F08DE /* EndPoint.swift in Sources */,
+				F641FC682A19109A001F08DE /* ParkingPlaceHeaderDTO.swift in Sources */,
 				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
 				F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */,
+				F641FC632A190F1A001F08DE /* ParkingPlaceDTO.swift in Sources */,
 				F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */,
+				F641FC6C2A1911CD001F08DE /* ParkingPlaceItemDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
