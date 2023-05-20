@@ -13,6 +13,11 @@
 		F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC422A1714B6001F08DE /* ParkingViewController.swift */; };
 		F641FC482A1714B7001F08DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F641FC472A1714B7001F08DE /* Assets.xcassets */; };
 		F641FC4B2A1714B7001F08DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F641FC492A1714B7001F08DE /* LaunchScreen.storyboard */; };
+		F641FC562A173EB9001F08DE /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC552A173EB9001F08DE /* EndPoint.swift */; };
+		F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC582A17657C001F08DE /* HTTPMethod.swift */; };
+		F641FC5B2A176595001F08DE /* APICallable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5A2A176595001F08DE /* APICallable.swift */; };
+		F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5C2A176628001F08DE /* NetworkError.swift */; };
+		F641FC5F2A176E1A001F08DE /* ParkingPlaceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +32,11 @@
 		F641FC4A2A1714B7001F08DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F641FC4C2A1714B7001F08DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F641FC522A173541001F08DE /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
+		F641FC552A173EB9001F08DE /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		F641FC582A17657C001F08DE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		F641FC5A2A176595001F08DE /* APICallable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallable.swift; sourceTree = "<group>"; };
+		F641FC5C2A176628001F08DE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +83,25 @@
 				F641FC3E2A1714B6001F08DE /* AppDelegate.swift */,
 				F641FC402A1714B6001F08DE /* SceneDelegate.swift */,
 				F641FC422A1714B6001F08DE /* ParkingViewController.swift */,
+				F641FC572A176562001F08DE /* Network */,
 				F641FC472A1714B7001F08DE /* Assets.xcassets */,
 				F641FC492A1714B7001F08DE /* LaunchScreen.storyboard */,
 				F641FC4C2A1714B7001F08DE /* Info.plist */,
 				F641FC522A173541001F08DE /* APIKeys.xcconfig */,
 			);
 			path = Parking;
+			sourceTree = "<group>";
+		};
+		F641FC572A176562001F08DE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F641FC552A173EB9001F08DE /* EndPoint.swift */,
+				F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */,
+				F641FC5A2A176595001F08DE /* APICallable.swift */,
+				F641FC582A17657C001F08DE /* HTTPMethod.swift */,
+				F641FC5C2A176628001F08DE /* NetworkError.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FEA8349D5923511AF5BD1D10 /* Pods */ = {
@@ -205,7 +228,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */,
+				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,
+				F641FC5F2A176E1A001F08DE /* ParkingPlaceAPI.swift in Sources */,
+				F641FC5B2A176595001F08DE /* APICallable.swift in Sources */,
+				F641FC562A173EB9001F08DE /* EndPoint.swift in Sources */,
+				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
 				F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
