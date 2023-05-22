@@ -32,6 +32,7 @@
 		F641FC792A1B31E9001F08DE /* ParkingPlaceCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC782A1B31E9001F08DE /* ParkingPlaceCharge.swift */; };
 		F641FC7B2A1B3200001F08DE /* ChargeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC7A2A1B3200001F08DE /* ChargeInformation.swift */; };
 		F641FC812A1B457A001F08DE /* ParkingPlaceAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC802A1B457A001F08DE /* ParkingPlaceAPIError.swift */; };
+		F641FC9C2A1B5D7C001F08DE /* OperatingDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		F641FC782A1B31E9001F08DE /* ParkingPlaceCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceCharge.swift; sourceTree = "<group>"; };
 		F641FC7A2A1B3200001F08DE /* ChargeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeInformation.swift; sourceTree = "<group>"; };
 		F641FC802A1B457A001F08DE /* ParkingPlaceAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceAPIError.swift; sourceTree = "<group>"; };
+		F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingDay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				F641FC6E2A1B3149001F08DE /* ParkingPlace.swift */,
 				F641FC702A1B31A0001F08DE /* Coordinate.swift */,
+				F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */,
 				F641FC722A1B31B3001F08DE /* OperatingTime.swift */,
 				F641FC742A1B31C2001F08DE /* TimeTable.swift */,
 				F641FC782A1B31E9001F08DE /* ParkingPlaceCharge.swift */,
@@ -293,6 +296,7 @@
 				F641FC6F2A1B3149001F08DE /* ParkingPlace.swift in Sources */,
 				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,
+				F641FC9C2A1B5D7C001F08DE /* OperatingDay.swift in Sources */,
 				F641FC5F2A176E1A001F08DE /* ParkingPlaceAPI.swift in Sources */,
 				F641FC5B2A176595001F08DE /* APICallable.swift in Sources */,
 				F641FC792A1B31E9001F08DE /* ParkingPlaceCharge.swift in Sources */,

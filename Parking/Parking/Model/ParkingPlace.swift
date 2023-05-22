@@ -9,7 +9,9 @@ import Foundation
 
 struct ParkingPlace {
     let name: String
-    let address: String
+    let roadNameAddress: String
+    let lotNameAddress: String
+    let operatingDay: OperatingDay
     let operatingTime: OperatingTime
     let charge: ParkingPlaceCharge
     let coordinate:Coordinate
