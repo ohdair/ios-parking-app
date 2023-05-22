@@ -14,4 +14,13 @@ struct ParkingPlaceAPI: APICallable {
     var httpHeaders: [String : String]?
     let httpMethod: HTTPMethod = .get
     var queryItems: [String : String]? = ["pageNo": "1", "numOfRows": "100", "type": "json"]
+
+    init() {
+        guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "PUBLIC_PARKING_PLACE_KEY") as? String,
+              let encodedAPI = apiKey.removingPercentEncoding else {
+            return
+        }
+
+        queryItems?.updateValue(encodedAPI, forKey: "serviceKey")
+    }
 }

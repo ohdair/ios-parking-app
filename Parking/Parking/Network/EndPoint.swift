@@ -17,11 +17,14 @@ struct EndPoint {
 
     var url: URL {
         get throws {
-            guard var componentURL = URLComponents(string: "\(endpoint.baseURL)\(endpoint.path)") else {
+            let urlString = "\(endpoint.baseURL)\(endpoint.path)"
+
+            guard var componentURL = URLComponents(string: urlString) else {
                 throw NetworkError.invalidURL
             }
 
             componentURL.queryItems = queryItems
+            componentURL.percentEncodedQuery = componentURL.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
             guard let url = componentURL.url else {
                 throw NetworkError.invalidURL

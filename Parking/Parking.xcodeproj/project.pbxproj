@@ -110,6 +110,7 @@
 			children = (
 				F641FC552A173EB9001F08DE /* EndPoint.swift */,
 				F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */,
+				F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */,
 				F641FC5A2A176595001F08DE /* APICallable.swift */,
 				F641FC582A17657C001F08DE /* HTTPMethod.swift */,
 				F641FC602A19015E001F08DE /* NetworkRouter.swift */,
@@ -125,7 +126,6 @@
 				F641FC642A19100A001F08DE /* ParkingPlaceResultDTO.swift */,
 				F641FC672A19109A001F08DE /* ParkingPlaceHeaderDTO.swift */,
 				F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */,
-				F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */,
 			);
 			path = ParkingPlaceDTO;
 			sourceTree = "<group>";
