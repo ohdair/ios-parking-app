@@ -16,20 +16,17 @@ class ParkingViewController: UIViewController {
 //        let mapView = NMFMapView(frame: view.frame)
 //        view.addSubview(mapView)
 
-        do {
-            let parkingPlaceAPI = ParkingPlaceAPI()
-            let request = try EndPoint(parkingPlaceAPI).urlRequest
-            NetworkRouter().fetch(request) { data, error in
-                if let error = error {
-                    print(error)
-                }
-                if let data = data,
-                   let decodedData = try? JSONDecoder().decode(ParkingPlaceDTO.self, from: data) {
-                    print(decodedData)
-                }
+
+        let parkingPlaceAPI = ParkingPlaceAPI()
+        let endPoint = EndPoint(of: parkingPlaceAPI)
+        NetworkRouter().fetchItem(with: endPoint) { data, error in
+            if let error = error {
+                print(error)
             }
-        } catch {
-            print(error)
+
+            if let data = data {
+                print(data)
+            }
         }
     }
 }

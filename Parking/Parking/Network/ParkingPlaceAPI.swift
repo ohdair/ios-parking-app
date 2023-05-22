@@ -8,7 +8,7 @@
 import Foundation
 
 struct ParkingPlaceAPI: APICallable {
-
+    let convertType: Convertable.Type = ParkingPlaceDTO.self
     let baseURL = "http://api.data.go.kr"
     let path = "/openapi/tn_pubr_prkplce_info_api"
     var httpHeaders: [String : String]?

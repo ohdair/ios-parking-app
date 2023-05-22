@@ -13,4 +13,7 @@ protocol APICallable {
     var queryItems: [String: String]? { get set }
     var httpHeaders: [String: String]? { get set }
     var httpMethod: HTTPMethod { get }
+    var convertType: Convertable.Type { get }
 }
+
+protocol Convertable: Decodable {}

@@ -11,8 +11,14 @@ struct EndPoint {
 
     private var endpoint: APICallable
 
-    init(_ endpoint: APICallable) {
+    init(of endpoint: APICallable) {
         self.endpoint = endpoint
+    }
+
+    var convertType: Convertable.Type {
+        get {
+            endpoint.convertType
+        }
     }
 
     var url: URL {
