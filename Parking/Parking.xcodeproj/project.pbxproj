@@ -31,6 +31,7 @@
 		F641FC772A1B31D5001F08DE /* ChargeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC762A1B31D5001F08DE /* ChargeType.swift */; };
 		F641FC792A1B31E9001F08DE /* ParkingPlaceCharge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC782A1B31E9001F08DE /* ParkingPlaceCharge.swift */; };
 		F641FC7B2A1B3200001F08DE /* ChargeInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC7A2A1B3200001F08DE /* ChargeInformation.swift */; };
+		F641FC812A1B457A001F08DE /* ParkingPlaceAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC802A1B457A001F08DE /* ParkingPlaceAPIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		F641FC762A1B31D5001F08DE /* ChargeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeType.swift; sourceTree = "<group>"; };
 		F641FC782A1B31E9001F08DE /* ParkingPlaceCharge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceCharge.swift; sourceTree = "<group>"; };
 		F641FC7A2A1B3200001F08DE /* ChargeInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeInformation.swift; sourceTree = "<group>"; };
+		F641FC802A1B457A001F08DE /* ParkingPlaceAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceAPIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				F641FC552A173EB9001F08DE /* EndPoint.swift */,
 				F641FC5E2A176E1A001F08DE /* ParkingPlaceAPI.swift */,
+				F641FC802A1B457A001F08DE /* ParkingPlaceAPIError.swift */,
 				F641FC5A2A176595001F08DE /* APICallable.swift */,
 				F641FC582A17657C001F08DE /* HTTPMethod.swift */,
 				F641FC602A19015E001F08DE /* NetworkRouter.swift */,
@@ -298,6 +301,7 @@
 				F641FC682A19109A001F08DE /* ParkingPlaceHeaderDTO.swift in Sources */,
 				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
 				F641FC7B2A1B3200001F08DE /* ChargeInformation.swift in Sources */,
+				F641FC812A1B457A001F08DE /* ParkingPlaceAPIError.swift in Sources */,
 				F641FC752A1B31C2001F08DE /* TimeTable.swift in Sources */,
 				F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */,
 				F641FC632A190F1A001F08DE /* ParkingPlaceDTO.swift in Sources */,
