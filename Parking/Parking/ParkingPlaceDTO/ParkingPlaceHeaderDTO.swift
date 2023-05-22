@@ -8,8 +8,8 @@
 import Foundation
 
 struct ParkingPlaceHeaderDTO: Decodable {
-    let code: String?
-    let message: String?
+    let code: String
+    let message: String
     let type: String?
 
     enum CodingKeys: String, CodingKey {
@@ -24,6 +24,6 @@ extension ParkingPlaceHeaderDTO {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         code = try container.decode(String.self, forKey: .code)
         message = try container.decode(String.self, forKey: .message)
-        type = try container.decode(String.self, forKey: .type)
+        type = try? container.decode(String.self, forKey: .type)
     }
 }

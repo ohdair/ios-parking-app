@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ParkingPlaceDTO: Decodable {
+struct ParkingPlaceDTO: Decodable, Convertable {
     let result: ParkingPlaceResultDTO
 
     enum CodingKeys: String, CodingKey {

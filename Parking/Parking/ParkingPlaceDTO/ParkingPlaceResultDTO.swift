@@ -21,6 +21,6 @@ extension ParkingPlaceResultDTO {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         header = try container.decode(ParkingPlaceHeaderDTO.self, forKey: .header)
-        body = try container.decode(ParkingPlaceBodyDTO.self, forKey: .body)
+        body = try? container.decode(ParkingPlaceBodyDTO.self, forKey: .body)
     }
 }

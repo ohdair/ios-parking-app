@@ -8,10 +8,10 @@
 import Foundation
 
 struct ParkingPlaceBodyDTO: Decodable {
-    let items: [ParkingPlaceItemDTO]?
-    let totalCount: String?
-    let numOfRows: String?
-    let pageNumber: String?
+    let items: [ParkingPlaceItemDTO]
+    let totalCount: String
+    let numOfRows: String
+    let pageNumber: String
 
     enum CodingKeys: String, CodingKey {
         case items
