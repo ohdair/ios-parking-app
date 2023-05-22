@@ -18,3 +18,12 @@ struct ParkingPlaceHeaderDTO: Decodable {
         case type
     }
 }
+
+extension ParkingPlaceHeaderDTO {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        code = try container.decode(String.self, forKey: .code)
+        message = try container.decode(String.self, forKey: .message)
+        type = try container.decode(String.self, forKey: .type)
+    }
+}

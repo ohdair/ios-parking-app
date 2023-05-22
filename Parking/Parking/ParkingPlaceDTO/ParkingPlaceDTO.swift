@@ -14,3 +14,10 @@ struct ParkingPlaceDTO: Decodable {
         case result = "response"
     }
 }
+
+extension ParkingPlaceDTO {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        result = try container.decode(ParkingPlaceResultDTO.self, forKey: .result)
+    }
+}

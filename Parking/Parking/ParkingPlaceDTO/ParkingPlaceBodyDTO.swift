@@ -20,3 +20,13 @@ struct ParkingPlaceBodyDTO: Decodable {
         case pageNumber = "pageNo"
     }
 }
+
+extension ParkingPlaceBodyDTO {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        items = try container.decode([ParkingPlaceItemDTO].self, forKey: .items)
+        totalCount = try container.decode(String.self, forKey: .totalCount)
+        numOfRows = try container.decode(String.self, forKey: .numOfRows)
+        pageNumber = try container.decode(String.self, forKey: .pageNumber)
+    }
+}
