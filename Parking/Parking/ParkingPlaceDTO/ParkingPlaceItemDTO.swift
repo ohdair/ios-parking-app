@@ -12,8 +12,8 @@ struct ParkingPlaceItemDTO: Decodable {
     let parkingPlaceName: String
     let parkingPlaceCategory: String
     let parkingPlaceType: String
-    let roadNameAddress: String
-    let lotNameAddress: String
+    let roadAddress: String
+    let jibunAddress: String
     let parkingCompartments: String
     let feedCategory: String
     let enforceCategory: String
@@ -39,41 +39,43 @@ struct ParkingPlaceItemDTO: Decodable {
     let latitude: String
     let longitude: String
     let referenceDate: String
-    let insttCode: String
+    let providerCode: String
+    let providerName: String
 
     enum CodingKeys: String, CodingKey {
-        case parkingPlaceNumber = "prkplceNo"
-        case parkingPlaceName = "prkplceNm"
-        case parkingPlaceCategory = "prkplceSe"
-        case parkingPlaceType = "prkplceType"
-        case roadNameAddress = "rdnmadr"
-        case lotNameAddress = "lnmadr"
-        case parkingCompartments = "prkcmprt"
-        case feedCategory = "feedingSe"
-        case enforceCategory = "enforceSe"
-        case operatingDays = "operDay"
-        case weekdayOperationOpenTime = "weekdayOperOpenHhmm"
-        case weekdayOperationCloseTime = "weekdayOperColseHhmm"
-        case saturdayOperationOpenTime = "satOperOperOpenHhmm"
-        case saturdayOperationCloseTime = "satOperCloseHhmm"
-        case holidayOperationOpenTime = "holidayOperOpenHhmm"
-        case holidayOperationCloseTime = "holidayCloseOpenHhmm"
-        case parkingchargeInformation = "parkingchrgeInfo"
-        case basicTime
-        case basicCharge
-        case additionalUnitTime = "addUnitTime"
-        case additionalUnitCharge = "addUnitCharge"
-        case dayCommonTicketAdjustmentTime = "dayCmmtktAdjTime"
-        case dayCommonTicketCharge = "dayCmmtkt"
-        case monthCommonTicketCharge = "monthCmmtkt"
-        case payments = "metpay"
-        case specialNotes = "spcmnt"
-        case institutionName = "institutionNm"
-        case phoneNumber
-        case latitude
-        case longitude
-        case referenceDate
-        case insttCode
+        case parkingPlaceNumber = "주차장관리번호"
+        case parkingPlaceName = "주차장명"
+        case parkingPlaceCategory = "주차장구분"
+        case parkingPlaceType = "주차장유형"
+        case roadAddress = "소재지도로명주소"
+        case jibunAddress = "소재지지번주소"
+        case parkingCompartments = "주차구획수"
+        case feedCategory = "급지구분"
+        case enforceCategory = "부제시행구분"
+        case operatingDays = "운영요일"
+        case weekdayOperationOpenTime = "평일운영시작시각"
+        case weekdayOperationCloseTime = "평일운영종료시각"
+        case saturdayOperationOpenTime = "토요일운영시작시각"
+        case saturdayOperationCloseTime = "토요일운영종료시각"
+        case holidayOperationOpenTime = "공휴일운영시작시각"
+        case holidayOperationCloseTime = "공휴일운영종료시각"
+        case parkingchargeInformation = "요금정보"
+        case basicTime = "주차기본시간"
+        case basicCharge = "주차기본요금"
+        case additionalUnitTime = "추가단위시간"
+        case additionalUnitCharge = "추가단위요금"
+        case dayCommonTicketAdjustmentTime = "1일주차권요금적용시간"
+        case dayCommonTicketCharge = "1일주차권요금"
+        case monthCommonTicketCharge = "월정기권요금"
+        case payments = "결제방법"
+        case specialNotes = "특기사항"
+        case institutionName = "관리기관명"
+        case phoneNumber = "전화번호"
+        case latitude = "위도"
+        case longitude = "경도"
+        case referenceDate = "데이터기준일자"
+        case providerCode = "제공기관코드"
+        case providerName = "제공기관명"
     }
 }
 
@@ -84,8 +86,8 @@ extension ParkingPlaceItemDTO {
         parkingPlaceName = try container.decode(String.self, forKey: .parkingPlaceName)
         parkingPlaceCategory = try container.decode(String.self, forKey: .parkingPlaceCategory)
         parkingPlaceType = try container.decode(String.self, forKey: .parkingPlaceType)
-        roadNameAddress = try container.decode(String.self, forKey: .roadNameAddress)
-        lotNameAddress = try container.decode(String.self, forKey: .lotNameAddress)
+        roadAddress = try container.decode(String.self, forKey: .roadAddress)
+        jibunAddress = try container.decode(String.self, forKey: .jibunAddress)
         parkingCompartments = try container.decode(String.self, forKey: .parkingCompartments)
         feedCategory = try container.decode(String.self, forKey: .feedCategory)
         enforceCategory = try container.decode(String.self, forKey: .enforceCategory)
@@ -111,6 +113,7 @@ extension ParkingPlaceItemDTO {
         latitude = try container.decode(String.self, forKey: .latitude)
         longitude = try container.decode(String.self, forKey: .longitude)
         referenceDate = try container.decode(String.self, forKey: .referenceDate)
-        insttCode = try container.decode(String.self, forKey: .insttCode)
+        providerCode = try container.decode(String.self, forKey: .providerCode)
+        providerName = try container.decode(String.self, forKey: .providerName)
     }
 }

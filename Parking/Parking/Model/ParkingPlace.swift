@@ -14,5 +14,5 @@ struct ParkingPlace {
     let operatingDay: OperatingDay
     let operatingTime: OperatingTime
     let charge: ParkingPlaceCharge
-    let coordinate:Coordinate
+    let coordinate: Coordinate
 }

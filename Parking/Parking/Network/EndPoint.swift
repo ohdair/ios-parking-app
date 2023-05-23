@@ -30,7 +30,6 @@ struct EndPoint {
             }
 
             componentURL.queryItems = queryItems
-            componentURL.percentEncodedQuery = componentURL.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")
 
             guard let url = componentURL.url else {
                 throw NetworkError.invalidURL

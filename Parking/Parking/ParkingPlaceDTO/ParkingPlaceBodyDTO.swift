@@ -7,26 +7,60 @@
 
 import Foundation
 
-struct ParkingPlaceBodyDTO: Decodable {
-    let items: [ParkingPlaceItemDTO]
-    let totalCount: String
-    let numOfRows: String
-    let pageNumber: String
+struct ParkingPlaceDTO: Decodable {
+    let fields: [ParkingPlaceFieldDTO]
+    let records: [ParkingPlaceItemDTO]
 
     enum CodingKeys: String, CodingKey {
-        case items
-        case totalCount
-        case numOfRows
-        case pageNumber = "pageNo"
+        case fields
+        case records
     }
 }
 
-extension ParkingPlaceBodyDTO {
+extension ParkingPlaceDTO {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        items = try container.decode([ParkingPlaceItemDTO].self, forKey: .items)
-        totalCount = try container.decode(String.self, forKey: .totalCount)
-        numOfRows = try container.decode(String.self, forKey: .numOfRows)
-        pageNumber = try container.decode(String.self, forKey: .pageNumber)
+        records = try container.decode([ParkingPlaceItemDTO].self, forKey: .records)
+        fields = try container.decode([ParkingPlaceFieldDTO].self, forKey: .fields)
+    }
+}
+
+extension ParkingPlaceDTO {
+    func convert() -> [ParkingPlace]? {
+
+        let parkingPlaces = records.map { record in
+            let weekDayTimeTable = TimeTable(open: record.weekdayOperationOpenTime,
+                                             close: record.weekdayOperationCloseTime)
+            let saturDayTimeTable = TimeTable(open: record.saturdayOperationOpenTime,
+                                              close: record.saturdayOperationCloseTime)
+            let holidayTimeTable = TimeTable(open: record.holidayOperationOpenTime,
+                                             close: record.holidayOperationCloseTime)
+            let operatingDayData = record.operatingDays.components(separatedBy: "+")
+            let operatingDay = OperatingDay(weekday: operatingDayData.contains("평일"),
+                                            saturday: operatingDayData.contains("토요일"),
+                                            holiday: operatingDayData.contains("공휴일"))
+            let operatingTime = OperatingTime(weekday: weekDayTimeTable,
+                                              saturday: saturDayTimeTable,
+                                              holiday: holidayTimeTable)
+            let chargeType: ChargeType = record.parkingchargeInformation == "무료" ? .free : .paid
+            let baseCharge = ChargeInformation(time: UInt(record.basicTime) ?? 0,
+                                               amount: UInt(record.basicCharge) ?? 0)
+            let additionalCharge = ChargeInformation(time: UInt(record.additionalUnitTime) ?? 0,
+                                                     amount: UInt(record.additionalUnitCharge) ?? 0)
+            let charge = ParkingPlaceCharge(type: chargeType,
+                                            base: baseCharge,
+                                            additional: additionalCharge)
+            let coordinate = Coordinate(latitude: Double(record.latitude) ?? 0,
+                                        longitude: Double(record.longitude) ?? 0)
+            return ParkingPlace(name: record.parkingPlaceName,
+                                roadNameAddress: record.roadAddress,
+                                lotNameAddress: record.jibunAddress,
+                                operatingDay: operatingDay,
+                                operatingTime: operatingTime,
+                                charge: charge,
+                                coordinate: coordinate)
+        }
+
+        return parkingPlaces
     }
 }
