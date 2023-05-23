@@ -37,12 +37,7 @@ class NetworkRouter {
         task?.resume()
     }
 
-    func fetchItem(with type: EndPoint, complition: @escaping (Convertable?, Error?) -> Void) {
-        guard let request = try? type.urlRequest else {
-            complition(nil, NetworkError.invalidURL)
-            return
-        }
-
+    func fetchItem<T: Decodable>(with request: URLRequest, model: T, complition: @escaping (T?, Error?) -> Void) {
         fetch(request) { data, error in
             do {
                 if let error = error {
@@ -50,7 +45,7 @@ class NetworkRouter {
                 }
 
                 if let data = data {
-                    let decodedData = try JSONDecoder().decode(type.convertType, from: data)
+                    let decodedData = try JSONDecoder().decode(T.self, from: data)
                     complition(decodedData, nil)
                     return
                 }
