@@ -1,5 +1,5 @@
 //
-//  EndPoint.swift
+//  Endpoint.swift
 //  Parking
 //
 //  Created by 박재우 on 2023/05/19.
@@ -7,25 +7,19 @@
 
 import Foundation
 
-struct EndPoint {
+protocol Endpoint {
+    var baseURL: String { get }
+    var path: String { get }
+    var queryItems: [String: String]? { get set }
+    var httpHeaders: [String: String]? { get set }
+    var httpMethod: HTTPMethod { get }
+    var convertType: Convertable.Type { get }
+}
 
-    private var endpoint: APICallable
-
-    init(of endpoint: APICallable) {
-        self.endpoint = endpoint
-    }
-
-    var convertType: Convertable.Type {
-        get {
-            endpoint.convertType
-        }
-    }
-
+extension Endpoint {
     var url: URL {
         get throws {
-            let urlString = "\(endpoint.baseURL)\(endpoint.path)"
-
-            guard var componentURL = URLComponents(string: urlString) else {
+            guard var componentURL = URLComponents(string: baseURL + path) else {
                 throw NetworkError.invalidURL
             }
 
@@ -43,16 +37,18 @@ struct EndPoint {
         get throws {
             var request = URLRequest(url: try url)
 
-            request.httpMethod = endpoint.httpMethod.rawValue
-            request.allHTTPHeaderFields = endpoint.httpHeaders
+            request.httpMethod = httpMethod.rawValue
+            request.allHTTPHeaderFields = httpHeaders
 
             return request
         }
     }
 
     private var queryItems: [URLQueryItem]? {
-        endpoint.queryItems?.map { key, value in
+        self.queryItems?.map { key, value in
             URLQueryItem(name: key, value: value)
         }
     }
 }
+
+protocol Convertable: Decodable {}

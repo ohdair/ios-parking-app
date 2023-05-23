@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NaverGeocodingAPI: APICallable {
+struct NaverGeocodingAPI: Endpoint {
     var convertType: Convertable.Type = Convertable.self as! any Convertable.Type
 
     let baseURL: String = "https://naveropenapi.apigw.ntruss.com"
