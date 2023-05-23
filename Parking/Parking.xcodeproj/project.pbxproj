@@ -30,6 +30,11 @@
 		F641FC9C2A1B5D7C001F08DE /* OperatingDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */; };
 		F641FCBF2A1C5DA4001F08DE /* 전국주차장정보표준데이터.json in Resources */ = {isa = PBXBuildFile; fileRef = F641FCBE2A1C5DA4001F08DE /* 전국주차장정보표준데이터.json */; };
 		F641FCC12A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC02A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift */; };
+		F641FCC32A1C858B001F08DE /* NaverGeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC22A1C858B001F08DE /* NaverGeocodingAPI.swift */; };
+		F641FCC52A1C8B06001F08DE /* NaverGeocodingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC42A1C8B06001F08DE /* NaverGeocodingDTO.swift */; };
+		F641FCC92A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC82A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift */; };
+		F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */; };
+		F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +66,11 @@
 		F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingDay.swift; sourceTree = "<group>"; };
 		F641FCBE2A1C5DA4001F08DE /* 전국주차장정보표준데이터.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "전국주차장정보표준데이터.json"; sourceTree = "<group>"; };
 		F641FCC02A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceFieldDTO.swift; sourceTree = "<group>"; };
+		F641FCC22A1C858B001F08DE /* NaverGeocodingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAPI.swift; sourceTree = "<group>"; };
+		F641FCC42A1C8B06001F08DE /* NaverGeocodingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingDTO.swift; sourceTree = "<group>"; };
+		F641FCC82A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAddressDTO.swift; sourceTree = "<group>"; };
+		F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAddressElementDTO.swift; sourceTree = "<group>"; };
+		F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingMetaDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +119,7 @@
 				F641FC422A1714B6001F08DE /* ParkingViewController.swift */,
 				F641FC572A176562001F08DE /* Network */,
 				F641FC6D2A1B3137001F08DE /* Model */,
-				F641FC662A191016001F08DE /* ParkingPlaceDTO */,
+				F641FCC62A1C8E77001F08DE /* DTO */,
 				F641FC472A1714B7001F08DE /* Assets.xcassets */,
 				F641FC492A1714B7001F08DE /* LaunchScreen.storyboard */,
 				F641FC4C2A1714B7001F08DE /* Info.plist */,
@@ -124,6 +134,7 @@
 			children = (
 				F641FC552A173EB9001F08DE /* EndPoint.swift */,
 				F641FC5A2A176595001F08DE /* APICallable.swift */,
+				F641FCC22A1C858B001F08DE /* NaverGeocodingAPI.swift */,
 				F641FC582A17657C001F08DE /* HTTPMethod.swift */,
 				F641FC602A19015E001F08DE /* NetworkRouter.swift */,
 				F641FC5C2A176628001F08DE /* NetworkError.swift */,
@@ -154,6 +165,26 @@
 				F641FC7A2A1B3200001F08DE /* ChargeInformation.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F641FCC62A1C8E77001F08DE /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				F641FCC72A1C8E84001F08DE /* NaverGeocodingDTO */,
+				F641FC662A191016001F08DE /* ParkingPlaceDTO */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		F641FCC72A1C8E84001F08DE /* NaverGeocodingDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F641FCC42A1C8B06001F08DE /* NaverGeocodingDTO.swift */,
+				F641FCC82A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift */,
+				F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */,
+				F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */,
+			);
+			path = NaverGeocodingDTO;
 			sourceTree = "<group>";
 		};
 		FEA8349D5923511AF5BD1D10 /* Pods */ = {
@@ -280,11 +311,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F641FCC52A1C8B06001F08DE /* NaverGeocodingDTO.swift in Sources */,
 				F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */,
 				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
 				F641FC732A1B31B3001F08DE /* OperatingTime.swift in Sources */,
+				F641FCC32A1C858B001F08DE /* NaverGeocodingAPI.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
 				F641FC6F2A1B3149001F08DE /* ParkingPlace.swift in Sources */,
+				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
 				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,
 				F641FC9C2A1B5D7C001F08DE /* OperatingDay.swift in Sources */,
@@ -295,6 +329,8 @@
 				F641FC562A173EB9001F08DE /* EndPoint.swift in Sources */,
 				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
 				F641FC7B2A1B3200001F08DE /* ChargeInformation.swift in Sources */,
+				F641FCC92A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift in Sources */,
+				F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */,
 				F641FC752A1B31C2001F08DE /* TimeTable.swift in Sources */,
 				F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */,
 				F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */,
