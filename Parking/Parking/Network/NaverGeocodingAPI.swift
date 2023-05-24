@@ -7,8 +7,9 @@
 
 import Foundation
 
+typealias jibunAddress = String
 struct NaverGeocodingAPI: Endpoint {
-    var convertType: Convertable.Type = Convertable.self as! any Convertable.Type
+    let model: any Convertable.Type = NaverGeocodingDTO.self
 
     let baseURL: String = "https://naveropenapi.apigw.ntruss.com"
     let path: String = "/map-geocode/v2/geocode"
@@ -16,7 +17,7 @@ struct NaverGeocodingAPI: Endpoint {
     var httpHeaders: [String : String]?
     var httpMethod: HTTPMethod = .get
 
-    init(from address: String) {
+    init(from address: jibunAddress) {
         guard let clientID = Bundle.main.object(forInfoDictionaryKey: "NMFClientId") as? String,
               let clientSecret = Bundle.main.object(forInfoDictionaryKey: "NAVER_MAP_SECRET") as? String else {
             return

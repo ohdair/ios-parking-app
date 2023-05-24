@@ -34,6 +34,7 @@
 		F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */; };
 		F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */; };
 		F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */; };
+		F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF42A1D9737001F08DE /* GeoCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAddressElementDTO.swift; sourceTree = "<group>"; };
 		F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingMetaDTO.swift; sourceTree = "<group>"; };
 		F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAPI.swift; sourceTree = "<group>"; };
+		F641FCF42A1D9737001F08DE /* GeoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		F641FC6D2A1B3137001F08DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F641FCF42A1D9737001F08DE /* GeoCode.swift */,
 				F641FC6E2A1B3149001F08DE /* ParkingPlace.swift */,
 				F641FC702A1B31A0001F08DE /* Coordinate.swift */,
 				F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */,
@@ -314,6 +317,7 @@
 				F641FC732A1B31B3001F08DE /* OperatingTime.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
 				F641FC6F2A1B3149001F08DE /* ParkingPlace.swift in Sources */,
+				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
 				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
 				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,

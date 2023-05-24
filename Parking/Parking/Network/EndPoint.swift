@@ -13,7 +13,7 @@ protocol Endpoint {
     var queryItems: [String: String]? { get set }
     var httpHeaders: [String: String]? { get set }
     var httpMethod: HTTPMethod { get }
-    var convertType: Convertable.Type { get }
+    var model: any Convertable.Type { get }
 }
 
 extension Endpoint {
@@ -51,4 +51,7 @@ extension Endpoint {
     }
 }
 
-protocol Convertable: Decodable {}
+protocol Convertable: Decodable {
+    associatedtype T
+    func convert() -> T
+}
