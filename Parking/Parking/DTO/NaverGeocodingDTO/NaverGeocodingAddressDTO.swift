@@ -14,7 +14,7 @@ struct NaverGeocodingAddressDTO: Decodable {
     let addressElements: [NaverGeocodingAddressElementDTO]?
     let longitude: String?
     let latitude: String?
-    let distance: String?
+    let distance: Double?
 
     enum CodingKeys: String, CodingKey {
         case roadAddress
@@ -36,6 +36,6 @@ extension NaverGeocodingAddressDTO {
         addressElements = try container.decode([NaverGeocodingAddressElementDTO]?.self, forKey: .addressElements)
         longitude = try container.decode(String?.self, forKey: .longitude)
         latitude = try container.decode(String?.self, forKey: .latitude)
-        distance = try container.decode(String?.self, forKey: .distance)
+        distance = try container.decode(Double?.self, forKey: .distance)
     }
 }
