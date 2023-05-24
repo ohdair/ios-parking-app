@@ -4,8 +4,8 @@
 <dict>
 	<key>NMFClientId</key>
 	<string>$(NAVER_MAP_KEY)</string>
-	<key>PUBLIC_PARKING_PLACE_KEY</key>
-	<string>$(PUBLIC_PARKING_PLACE_KEY)</string>
+	<key>NAVER_MAP_SECRET</key>
+	<string>$(NAVER_MAP_SECRET)</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

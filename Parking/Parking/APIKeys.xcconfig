@@ -8,5 +8,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-NAVER_MAP_KEY = 
-PUBLIC_PARKING_PLACE_KEY =
+NAVER_MAP_KEY =
+NAVER_MAP_SECRET =
