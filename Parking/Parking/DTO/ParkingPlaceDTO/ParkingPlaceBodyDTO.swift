@@ -29,6 +29,7 @@ extension ParkingPlaceDTO {
     func convert() -> [ParkingPlace]? {
 
         let parkingPlaces = records.map { record in
+            let number = UInt(record.parkingPlaceNumber.components(separatedBy: "-").joined()) ?? 0
             let weekDayTimeTable = TimeTable(open: record.weekdayOperationOpenTime,
                                              close: record.weekdayOperationCloseTime)
             let saturDayTimeTable = TimeTable(open: record.saturdayOperationOpenTime,
@@ -52,7 +53,8 @@ extension ParkingPlaceDTO {
                                             additional: additionalCharge)
             let coordinate = Coordinate(latitude: Double(record.latitude) ?? 0,
                                         longitude: Double(record.longitude) ?? 0)
-            return ParkingPlace(name: record.parkingPlaceName,
+            return ParkingPlace(number: number,
+                                name: record.parkingPlaceName,
                                 roadNameAddress: record.roadAddress,
                                 lotNameAddress: record.jibunAddress,
                                 operatingDay: operatingDay,

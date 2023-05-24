@@ -8,6 +8,7 @@
 import Foundation
 
 struct ParkingPlace {
+    let number: UInt
     let name: String
     let roadNameAddress: String
     let lotNameAddress: String
