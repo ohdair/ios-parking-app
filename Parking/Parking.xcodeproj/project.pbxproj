@@ -19,7 +19,7 @@
 		F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC602A19015E001F08DE /* NetworkRouter.swift */; };
 		F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */; };
 		F641FC6C2A1911CD001F08DE /* ParkingPlaceItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */; };
-		F641FC6F2A1B3149001F08DE /* ParkingPlaceData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC6E2A1B3149001F08DE /* ParkingPlaceData.swift */; };
+		F641FC6F2A1B3149001F08DE /* ParkingPlaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC6E2A1B3149001F08DE /* ParkingPlaceItem.swift */; };
 		F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC702A1B31A0001F08DE /* Coordinate.swift */; };
 		F641FC732A1B31B3001F08DE /* OperatingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC722A1B31B3001F08DE /* OperatingTime.swift */; };
 		F641FC752A1B31C2001F08DE /* TimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC742A1B31C2001F08DE /* TimeTable.swift */; };
@@ -56,7 +56,7 @@
 		F641FC602A19015E001F08DE /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceBodyDTO.swift; sourceTree = "<group>"; };
 		F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceItemDTO.swift; sourceTree = "<group>"; };
-		F641FC6E2A1B3149001F08DE /* ParkingPlaceData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceData.swift; sourceTree = "<group>"; };
+		F641FC6E2A1B3149001F08DE /* ParkingPlaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceItem.swift; sourceTree = "<group>"; };
 		F641FC702A1B31A0001F08DE /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		F641FC722A1B31B3001F08DE /* OperatingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatingTime.swift; sourceTree = "<group>"; };
 		F641FC742A1B31C2001F08DE /* TimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTable.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 			children = (
 				F641FCF42A1D9737001F08DE /* GeoCode.swift */,
 				F641FCF62A1DC718001F08DE /* ParkingPlace.swift */,
-				F641FC6E2A1B3149001F08DE /* ParkingPlaceData.swift */,
+				F641FC6E2A1B3149001F08DE /* ParkingPlaceItem.swift */,
 				F641FC702A1B31A0001F08DE /* Coordinate.swift */,
 				F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */,
 				F641FC722A1B31B3001F08DE /* OperatingTime.swift */,
@@ -319,7 +319,7 @@
 				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
 				F641FC732A1B31B3001F08DE /* OperatingTime.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
-				F641FC6F2A1B3149001F08DE /* ParkingPlaceData.swift in Sources */,
+				F641FC6F2A1B3149001F08DE /* ParkingPlaceItem.swift in Sources */,
 				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
 				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
 				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
