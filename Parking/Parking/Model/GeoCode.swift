@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GeoCode {
+struct GeoCode: Decodable {
     let coordinate: Coordinate
     let roadAddress: String
 }

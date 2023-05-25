@@ -26,9 +26,8 @@ extension ParkingPlaceDTO {
 }
 
 extension ParkingPlaceDTO {
-    func convert() -> [ParkingPlace]? {
-
-        let parkingPlaces = records.map { record in
+    func convert() -> ParkingPlace {
+        let parkingPlaceItems = records.map { record in
             let number = UInt(record.parkingPlaceNumber.components(separatedBy: "-").joined()) ?? 0
             let weekDayTimeTable = TimeTable(open: record.weekdayOperationOpenTime,
                                              close: record.weekdayOperationCloseTime)
@@ -53,16 +52,16 @@ extension ParkingPlaceDTO {
                                             additional: additionalCharge)
             let coordinate = Coordinate(latitude: Double(record.latitude) ?? 0,
                                         longitude: Double(record.longitude) ?? 0)
-            return ParkingPlace(number: number,
-                                name: record.parkingPlaceName,
-                                roadNameAddress: record.roadAddress,
-                                lotNameAddress: record.jibunAddress,
-                                operatingDay: operatingDay,
-                                operatingTime: operatingTime,
-                                charge: charge,
-                                coordinate: coordinate)
+            return ParkingPlaceItem(number: number,
+                                    name: record.parkingPlaceName,
+                                    roadAddress: record.roadAddress,
+                                    jibunAddress: record.jibunAddress,
+                                    operatingDay: operatingDay,
+                                    operatingTime: operatingTime,
+                                    charge: charge,
+                                    coordinate: coordinate)
         }
 
-        return parkingPlaces
+        return ParkingPlace(items: parkingPlaceItems)
     }
 }
