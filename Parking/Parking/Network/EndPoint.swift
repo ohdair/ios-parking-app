@@ -49,8 +49,3 @@ extension Endpoint {
         }
     }
 }
-
-protocol Convertable: Decodable {
-    associatedtype T
-    func convert() -> T
-}

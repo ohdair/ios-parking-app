@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NaverGeocodingDTO: Convertable {
+struct NaverGeocodingDTO: Decodable {
     let status: String
     let meta: NaverGeocodingMetaDTO?
     let addresses: [NaverGeocodingAddressDTO]?
