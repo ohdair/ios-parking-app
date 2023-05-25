@@ -13,7 +13,6 @@ protocol Endpoint {
     var queryItems: [String: String]? { get set }
     var httpHeaders: [String: String]? { get set }
     var httpMethod: HTTPMethod { get }
-    var model: any Convertable.Type { get }
 }
 
 extension Endpoint {

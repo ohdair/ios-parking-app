@@ -37,7 +37,7 @@ class NetworkRouter {
         task?.resume()
     }
 
-    func fetchItem<T: Convertable>(with request: URLRequest, model: T.Type, complition: @escaping (T?, Error?) -> Void) {
+    func fetchItem<T: Decodable>(with request: URLRequest, model: T.Type, complition: @escaping (T?, Error?) -> Void) {
         fetch(request) { data, error in
             do {
                 if let error = error {

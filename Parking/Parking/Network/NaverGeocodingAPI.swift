@@ -9,8 +9,6 @@ import Foundation
 
 typealias jibunAddress = String
 struct NaverGeocodingAPI: Endpoint {
-    let model: any Convertable.Type = NaverGeocodingDTO.self
-
     let baseURL: String = "https://naveropenapi.apigw.ntruss.com"
     let path: String = "/map-geocode/v2/geocode"
     var queryItems: [String : String]?
