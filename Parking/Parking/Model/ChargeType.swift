@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ChargeType {
+enum ChargeType: Int {
     case free
     case paid
 }
