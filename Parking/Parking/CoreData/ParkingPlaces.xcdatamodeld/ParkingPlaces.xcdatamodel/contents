@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="parkingPlaceNumber" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <fetchedProperty name="parkingplace" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Favorite" predicateString="number == $FETCH_SOURCE.parkingPlaceNumber"/>
+        </fetchedProperty>
+    </entity>
     <entity name="ParkingPlace" representedClassName="ParkingPlaceMO" syncable="YES" codeGenerationType="class">
         <attribute name="additionalChargeAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="additionalChargeTime" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
@@ -24,4 +30,10 @@
         <attribute name="weekdayOperating" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <fetchRequest name="favorites" entity="ParkingPlace" predicateString="favorite == 1"/>
+    <configuration name="Favorite">
+        <memberEntity name="Favorite"/>
+    </configuration>
+    <configuration name="ParkingPlace">
+        <memberEntity name="ParkingPlace"/>
+    </configuration>
 </model>
