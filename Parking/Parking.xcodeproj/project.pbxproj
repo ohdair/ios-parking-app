@@ -35,7 +35,8 @@
 		F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */; };
 		F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */; };
 		F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF42A1D9737001F08DE /* GeoCode.swift */; };
-		F641FCF72A1DC718001F08DE /* ParkingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF62A1DC718001F08DE /* ParkingPlace.swift */; };
+		F641FCF72A1DC718001F08DE /* ParkingPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF62A1DC718001F08DE /* ParkingPlaces.swift */; };
+		F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E28682A2336910024EDFB /* ParkingPlace.swift */; };
 		F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -73,7 +74,8 @@
 		F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingMetaDTO.swift; sourceTree = "<group>"; };
 		F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAPI.swift; sourceTree = "<group>"; };
 		F641FCF42A1D9737001F08DE /* GeoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCode.swift; sourceTree = "<group>"; };
-		F641FCF62A1DC718001F08DE /* ParkingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlace.swift; sourceTree = "<group>"; };
+		F641FCF62A1DC718001F08DE /* ParkingPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaces.swift; sourceTree = "<group>"; };
+		F66E28682A2336910024EDFB /* ParkingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlace.swift; sourceTree = "<group>"; };
 		F68EF0FA2A20924E00DA0768 /* ParkingPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkingPlaces.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,7 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				F641FCF42A1D9737001F08DE /* GeoCode.swift */,
-				F641FCF62A1DC718001F08DE /* ParkingPlace.swift */,
+				F66E28682A2336910024EDFB /* ParkingPlace.swift */,
+				F641FCF62A1DC718001F08DE /* ParkingPlaces.swift */,
 				F641FC6E2A1B3149001F08DE /* ParkingPlaceItem.swift */,
 				F641FC702A1B31A0001F08DE /* Coordinate.swift */,
 				F641FC9B2A1B5D7C001F08DE /* OperatingDay.swift */,
@@ -331,6 +334,7 @@
 				F641FC732A1B31B3001F08DE /* OperatingTime.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
 				F641FC6F2A1B3149001F08DE /* ParkingPlaceItem.swift in Sources */,
+				F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */,
 				F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */,
 				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
 				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
@@ -339,7 +343,7 @@
 				F641FC9C2A1B5D7C001F08DE /* OperatingDay.swift in Sources */,
 				F641FC5B2A176595001F08DE /* Endpoint.swift in Sources */,
 				F641FC792A1B31E9001F08DE /* ParkingPlaceCharge.swift in Sources */,
-				F641FCF72A1DC718001F08DE /* ParkingPlace.swift in Sources */,
+				F641FCF72A1DC718001F08DE /* ParkingPlaces.swift in Sources */,
 				F641FCC12A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift in Sources */,
 				F641FC772A1B31D5001F08DE /* ChargeType.swift in Sources */,
 				F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */,
