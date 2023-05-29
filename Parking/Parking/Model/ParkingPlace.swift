@@ -2,49 +2,42 @@
 //  ParkingPlace.swift
 //  Parking
 //
-//  Created by 박재우 on 2023/05/24.
+//  Created by 박재우 on 2023/05/28.
 //
 
 import Foundation
 
-struct ParkingPlace {
-    var items: [ParkingPlaceItem]
-
-    //MARK: - API 요청이 너무 많아 테스트를 위한 100개만 확인
+extension ParkingPlace {
     func interpolate() {
-        //        items.forEach { parkplace in
-        for index in 0...100 {
-            DispatchQueue.global().async {
-
-                var parkplace = items[index]
-
-                guard parkplace.coordinate.latitude.isZero,
-                      parkplace.coordinate.longitude.isZero else {
-                    return
-                }
-
-                let address = parkplace.jibunAddress.isEmpty ? parkplace.roadAddress : parkplace.jibunAddress
-                let endpoint = NaverGeocodingAPI(from: address)
-
-                do {
-                    NetworkRouter().fetchItem(with: try endpoint.urlRequest, model: NaverGeocodingDTO.self) { data, error in
-                        if let error = error {
-                            print(error)
-                            return
-                        }
-
-                        if let data = data {
-                            //                        print(index, data)
-                            let convertedData = data.convert()
-                            //                        print(index, convertedData)
-                            parkplace.roadAddress = convertedData.roadAddress
-                            parkplace.coordinate = convertedData.coordinate
-                        }
-                    }
-                } catch {
-                    print(error)
-                }
+        DispatchQueue.global().async {
+            guard self.latitude.isZero,
+                  self.longitude.isZero else {
+                return
             }
+
+            let jibunAddress = self.jibunAddress ?? ""
+            let roadAddress = self.roadAddress ?? ""
+            let address = jibunAddress.isEmpty ? roadAddress : jibunAddress
+            let endpoint = NaverGeocodingAPI(from: address)
+
+            do {
+                NetworkRouter().fetchItem(with: try endpoint.urlRequest, model: NaverGeocodingDTO.self) { data, error in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+
+                    if let data = data {
+                        let convertedData = data.convert()
+                        self.roadAddress = convertedData.roadAddress
+                        self.latitude = convertedData.coordinate.latitude
+                        self.longitude = convertedData.coordinate.longitude
+                    }
+                }
+            } catch {
+                print(error)
+            }
+            
         }
     }
 }
