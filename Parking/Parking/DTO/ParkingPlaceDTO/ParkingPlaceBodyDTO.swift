@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct ParkingPlaceDTO: Decodable {
     let fields: [ParkingPlaceFieldDTO]
@@ -26,7 +27,51 @@ extension ParkingPlaceDTO {
 }
 
 extension ParkingPlaceDTO {
-    func convert() -> ParkingPlace {
+    func createParkingPlaceContext(context: NSManagedObjectContext) {
+        records.forEach { record in
+            guard let number = Int64(record.parkingPlaceNumber.components(separatedBy: "-").joined()) else {
+                return
+            }
+            let operatingDays = record.operatingDays.components(separatedBy: "+")
+            let chargeType: ChargeType = record.parkingPlaceType == "무료" ? .free : .paid
+            let baseTime = Int16(record.basicTime) ?? 0
+            let baseAmount = Int16(record.basicCharge) ?? 0
+            let additionalTime = Int16(record.additionalUnitTime) ?? 0
+            let additionalAmount = Int16(record.additionalUnitCharge) ?? 0
+
+            let newParkingPlace = ParkingPlace(context: context)
+            newParkingPlace.number = number
+            newParkingPlace.name = record.parkingPlaceName
+            newParkingPlace.roadAddress = record.roadAddress
+            newParkingPlace.jibunAddress = record.jibunAddress
+            newParkingPlace.weekdayOperating = operatingDays.contains("평일")
+            newParkingPlace.saturdayOperating = operatingDays.contains("토요일")
+            newParkingPlace.holidayOperating = operatingDays.contains("공휴일")
+            newParkingPlace.weekdayOpenTime = record.weekdayOperationOpenTime
+            newParkingPlace.weekdayCloseTime = record.weekdayOperationCloseTime
+            newParkingPlace.saturdayOpenTime = record.saturdayOperationOpenTime
+            newParkingPlace.saturdayCloseTime = record.saturdayOperationCloseTime
+            newParkingPlace.holidayOpenTime = record.holidayOperationOpenTime
+            newParkingPlace.holidayCloseTime = record.holidayOperationCloseTime
+            newParkingPlace.chargeType = Int16(chargeType.rawValue)
+            newParkingPlace.baseChargeTime = baseTime
+            newParkingPlace.baseChargeAmount = baseAmount
+            newParkingPlace.additionalChargeTime = additionalTime
+            newParkingPlace.additionalChargeAmount = additionalAmount
+            newParkingPlace.latitude = Double(record.latitude) ?? 0
+            newParkingPlace.longitude = Double(record.longitude) ?? 0
+
+            newParkingPlace.interpolate()
+
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save test data: \(error)")
+            }
+        }
+    }
+
+    func convert() -> ParkingPlaces {
         let parkingPlaceItems = records.map { record in
             let number = UInt(record.parkingPlaceNumber.components(separatedBy: "-").joined()) ?? 0
             let weekDayTimeTable = TimeTable(open: record.weekdayOperationOpenTime,
@@ -62,6 +107,6 @@ extension ParkingPlaceDTO {
                                     coordinate: coordinate)
         }
 
-        return ParkingPlace(items: parkingPlaceItems)
+        return ParkingPlaces(items: parkingPlaceItems)
     }
 }
