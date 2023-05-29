@@ -6,11 +6,11 @@
             <fetchRequest name="fetchedPropertyFetchRequest" entity="Favorite" predicateString="number == $FETCH_SOURCE.parkingPlaceNumber"/>
         </fetchedProperty>
     </entity>
-    <entity name="ParkingPlace" representedClassName="ParkingPlaceMO" syncable="YES" codeGenerationType="class">
-        <attribute name="additionalChargeAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
-        <attribute name="additionalChargeTime" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
-        <attribute name="baseChargeAmount" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
-        <attribute name="baseChargeTime" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+    <entity name="ParkingPlace" representedClassName="ParkingPlace" syncable="YES" codeGenerationType="class">
+        <attribute name="additionalChargeAmount" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="additionalChargeTime" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="baseChargeAmount" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="baseChargeTime" optional="YES" attributeType="Integer 16" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="chargeType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="favorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="holidayCloseTime" optional="YES" attributeType="String"/>
@@ -20,7 +20,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="number" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="roadAddress" optional="YES" attributeType="String"/>
         <attribute name="saturdayCloseTime" optional="YES" attributeType="String"/>
         <attribute name="saturdayOpenTime" optional="YES" attributeType="String"/>
