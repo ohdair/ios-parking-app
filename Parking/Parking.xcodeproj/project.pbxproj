@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F52321676BACA76DE308F254 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDCEF5443164025211B0E06 /* Pods_Parking.framework */; };
+		F6089D6C2A2457AD002BE789 /* ParkingPlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */; };
+		F62BE5ED2A24A48A0060EB5E /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BE5EC2A24A48A0060EB5E /* IconButton.swift */; };
 		F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC3E2A1714B6001F08DE /* AppDelegate.swift */; };
 		F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC402A1714B6001F08DE /* SceneDelegate.swift */; };
 		F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC422A1714B6001F08DE /* ParkingViewController.swift */; };
@@ -37,6 +39,8 @@
 		773841A1FE2984B073A71F71 /* Pods-Parking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.release.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.release.xcconfig"; sourceTree = "<group>"; };
 		BA45EB698BA221CFE2EE8CEE /* Pods-Parking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parking.debug.xcconfig"; path = "Target Support Files/Pods-Parking/Pods-Parking.debug.xcconfig"; sourceTree = "<group>"; };
 		ECDCEF5443164025211B0E06 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceMarker.swift; sourceTree = "<group>"; };
+		F62BE5EC2A24A48A0060EB5E /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		F641FC3B2A1714B6001F08DE /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F641FC3E2A1714B6001F08DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F641FC402A1714B6001F08DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F6089D6A2A245781002BE789 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */,
+				F62BE5EC2A24A48A0060EB5E /* IconButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F641FC322A1714B6001F08DE = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +124,7 @@
 				F641FC422A1714B6001F08DE /* ParkingViewController.swift */,
 				F68EF0F82A20924E00DA0768 /* CoreData */,
 				F641FC572A176562001F08DE /* Network */,
+				F6089D6A2A245781002BE789 /* View */,
 				F641FC6D2A1B3137001F08DE /* Model */,
 				F641FCC62A1C8E77001F08DE /* DTO */,
 				F641FC472A1714B7001F08DE /* Assets.xcassets */,
@@ -309,11 +323,13 @@
 			files = (
 				F641FCC52A1C8B06001F08DE /* NaverGeocodingDTO.swift in Sources */,
 				F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */,
+				F6089D6C2A2457AD002BE789 /* ParkingPlaceMarker.swift in Sources */,
 				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
 				F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */,
 				F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */,
 				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
+				F62BE5ED2A24A48A0060EB5E /* IconButton.swift in Sources */,
 				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
 				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,
