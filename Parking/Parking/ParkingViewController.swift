@@ -22,17 +22,29 @@ class ParkingViewController: UIViewController, NSFetchedResultsControllerDelegat
         view.backgroundColor = .systemPink
 
 
-        let context = persistentContainer.viewContext
-        let request: NSFetchRequest<ParkingPlace> = ParkingPlace.fetchRequest()
+//        let context = persistentContainer.viewContext
+//        let request: NSFetchRequest<ParkingPlace> = ParkingPlace.fetchRequest()
+//
+//        let data = try? context.fetch(request)
+//
+//        print(data?.count ?? 0)
 
-        let data = try? context.fetch(request)
 
-        print(data?.count ?? 0)
+        let mapView = NMFMapView(frame: view.frame)
+        view.addSubview(mapView)
 
+        if let image = UIImage(named: "ParkingPin") {
 
+            let marker = NMFMarker()
+            marker.iconImage = NMFOverlayImage(image: image)
+//            marker.iconImage = NMFOverlayImage(image: UIImage(systemName: "parkingsign.circle")!)
 
-//        let mapView = NMFMapView(frame: view.frame)
-//        view.addSubview(mapView)
+            marker.position = NMGLatLng(lat: 37.5670135, lng: 126.9783740)
+            marker.width = 30
+            marker.height = 42.9
+            marker.mapView = mapView
+            print("성공")
+        }
 
 //        do {
 //            let bundle = Bundle(for: type(of: self))
