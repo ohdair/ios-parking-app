@@ -27,8 +27,10 @@ extension ParkingPlaceDTO {
 }
 
 extension ParkingPlaceDTO {
-    func createParkingPlaceContext(context: NSManagedObjectContext) {
-        records.forEach { record in
+    func createParkingPlaceContext(context: NSManagedObjectContext) async {
+//        records.forEach { record in
+        for idx in 0..<1000 {
+            let record = records[idx]
             guard let number = Int64(record.parkingPlaceNumber.components(separatedBy: "-").joined()) else {
                 return
             }
@@ -61,7 +63,7 @@ extension ParkingPlaceDTO {
             newParkingPlace.latitude = Double(record.latitude) ?? 0
             newParkingPlace.longitude = Double(record.longitude) ?? 0
 
-            newParkingPlace.interpolate()
+            await newParkingPlace.interpolate()
 
             do {
                 try context.save()
