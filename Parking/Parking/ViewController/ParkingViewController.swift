@@ -8,24 +8,30 @@
 import UIKit
 import NMapsMap
 import CoreData
+import CoreLocation
 
-class ParkingViewController: UIViewController {
+class ParkingViewController: UIViewController, CLLocationManagerDelegate {
 
     private lazy var persistentContainer: NSPersistentContainer = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         return appDelegate!.persistentContainer
     }()
 
+    lazy var mapView = NMFMapView(frame: view.frame)
+    var locationManager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
 
         //MARK: - 네이버 맵 띄우기
-        let mapView = NMFMapView(frame: view.frame)
         view.addSubview(mapView)
 
         //MARK: - 버튼 2개 추가
         let favoriteButton = IconButton(type: .favorite)
         let currentButton = IconButton(type: .currentLocation)
+        currentButton.addTarget(self, action: #selector(tappedCurrentLocation), for: .touchUpInside)
         view.addSubview(favoriteButton)
         view.addSubview(currentButton)
 
@@ -96,9 +102,9 @@ class ParkingViewController: UIViewController {
 
         let viewControllerToPresent = BottomSheetController()
         viewControllerToPresent.configure(with: parkPlace)
+        print(parkPlace.favorite)
         if let sheet = viewControllerToPresent.sheetPresentationController {
             sheet.detents = [.custom { context in return 180}]
-//            sheet.largestUndimmedDetentIdentifier = .medium
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
             sheet.prefersEdgeAttachedInCompactHeight = true
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
@@ -106,5 +112,18 @@ class ParkingViewController: UIViewController {
         }
 
         present(viewControllerToPresent, animated: true, completion: nil)
+    }
+
+    @objc func tappedCurrentLocation() {
+        guard mapView.positionMode != .normal else {
+            mapView.positionMode = .disabled
+            return
+        }
+        if let location = locationManager.location {
+            mapView.positionMode = .normal
+            let currentLocation = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+            let cameraUpdate = NMFCameraUpdate(scrollTo: currentLocation)
+            mapView.moveCamera(cameraUpdate)
+        }
     }
 }
