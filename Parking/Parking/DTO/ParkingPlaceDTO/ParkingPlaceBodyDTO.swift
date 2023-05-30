@@ -28,14 +28,12 @@ extension ParkingPlaceDTO {
 
 extension ParkingPlaceDTO {
     func createParkingPlaceContext(context: NSManagedObjectContext) async {
-//        records.forEach { record in
-        for idx in 0..<1000 {
-            let record = records[idx]
+        records.forEach { record in
             guard let number = Int64(record.parkingPlaceNumber.components(separatedBy: "-").joined()) else {
                 return
             }
             let operatingDays = record.operatingDays.components(separatedBy: "+")
-            let chargeType: ChargeType = record.parkingPlaceType == "무료" ? .free : .paid
+            let chargeType: ChargeType = record.parkingchargeInformation == "무료" ? .free : .paid
             let baseTime = Int16(record.basicTime) ?? 0
             let baseAmount = Int16(record.basicCharge) ?? 0
             let additionalTime = Int16(record.additionalUnitTime) ?? 0
@@ -62,14 +60,11 @@ extension ParkingPlaceDTO {
             newParkingPlace.additionalChargeAmount = additionalAmount
             newParkingPlace.latitude = Double(record.latitude) ?? 0
             newParkingPlace.longitude = Double(record.longitude) ?? 0
+            newParkingPlace.contactNumber = record.phoneNumber
 
-            await newParkingPlace.interpolate()
-
-            do {
-                try context.save()
-            } catch {
-                print("Failed to save test data: \(error)")
-            }
+            newParkingPlace.interpolate()
         }
     }
 }
+
+
