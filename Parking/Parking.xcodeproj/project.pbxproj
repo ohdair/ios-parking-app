@@ -10,6 +10,7 @@
 		F52321676BACA76DE308F254 /* Pods_Parking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECDCEF5443164025211B0E06 /* Pods_Parking.framework */; };
 		F6089D6C2A2457AD002BE789 /* ParkingPlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */; };
 		F62BE5ED2A24A48A0060EB5E /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BE5EC2A24A48A0060EB5E /* IconButton.swift */; };
+		F62BE5EF2A25863C0060EB5E /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62BE5EE2A25863C0060EB5E /* SearchBar.swift */; };
 		F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC3E2A1714B6001F08DE /* AppDelegate.swift */; };
 		F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC402A1714B6001F08DE /* SceneDelegate.swift */; };
 		F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC422A1714B6001F08DE /* ParkingViewController.swift */; };
@@ -41,6 +42,7 @@
 		ECDCEF5443164025211B0E06 /* Pods_Parking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceMarker.swift; sourceTree = "<group>"; };
 		F62BE5EC2A24A48A0060EB5E /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		F62BE5EE2A25863C0060EB5E /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		F641FC3B2A1714B6001F08DE /* Parking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F641FC3E2A1714B6001F08DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F641FC402A1714B6001F08DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */,
 				F62BE5EC2A24A48A0060EB5E /* IconButton.swift */,
+				F62BE5EE2A25863C0060EB5E /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				F641FCC12A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift in Sources */,
 				F641FC772A1B31D5001F08DE /* ChargeType.swift in Sources */,
 				F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */,
+				F62BE5EF2A25863C0060EB5E /* SearchBar.swift in Sources */,
 				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
 				F641FCC92A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift in Sources */,
 				F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */,
@@ -411,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -466,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -32,6 +32,7 @@ class IconButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 30
@@ -44,7 +45,6 @@ class IconButton: UIButton {
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowOffset = CGSize(width: 1, height: 2)
         layer.shadowOpacity = 0.5
-
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
     }
 }
