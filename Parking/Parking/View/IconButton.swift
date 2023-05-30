@@ -14,9 +14,9 @@ enum IconButtonType {
     var image: UIImage? {
         switch self {
         case .favorite:
-            return UIImage(named: "favorite")
+            return UIImage(named: "Favorite")
         case .currentLocation:
-            return UIImage(named: "currentLocation")
+            return UIImage(named: "CurrentLocation")
         }
     }
 }
