@@ -38,6 +38,7 @@
 		F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF42A1D9737001F08DE /* GeoCode.swift */; };
 		F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E28682A2336910024EDFB /* ParkingPlace.swift */; };
 		F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */; };
+		F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		F641FCF42A1D9737001F08DE /* GeoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCode.swift; sourceTree = "<group>"; };
 		F66E28682A2336910024EDFB /* ParkingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlace.swift; sourceTree = "<group>"; };
 		F68EF0FA2A20924E00DA0768 /* ParkingPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkingPlaces.xcdatamodel; sourceTree = "<group>"; };
+		F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +104,6 @@
 		F6089D6A2A245781002BE789 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F62BE5F42A25B9420060EB5E /* BottomSheetController.swift */,
 				F62BE5F62A25BDD20060EB5E /* ChargeLabel.swift */,
 				F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */,
 				F62BE5EC2A24A48A0060EB5E /* IconButton.swift */,
@@ -134,10 +135,9 @@
 			children = (
 				F641FC3E2A1714B6001F08DE /* AppDelegate.swift */,
 				F641FC402A1714B6001F08DE /* SceneDelegate.swift */,
-				F641FC422A1714B6001F08DE /* ParkingViewController.swift */,
-				F62BE5F82A2602960060EB5E /* LoadingViewController.swift */,
 				F68EF0F82A20924E00DA0768 /* CoreData */,
 				F641FC572A176562001F08DE /* Network */,
+				F698FD612A2633FE00F46F52 /* ViewController */,
 				F6089D6A2A245781002BE789 /* View */,
 				F641FC6D2A1B3137001F08DE /* Model */,
 				F641FCC62A1C8E77001F08DE /* DTO */,
@@ -210,6 +210,17 @@
 				F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		F698FD612A2633FE00F46F52 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F641FC422A1714B6001F08DE /* ParkingViewController.swift */,
+				F62BE5F82A2602960060EB5E /* LoadingViewController.swift */,
+				F62BE5F42A25B9420060EB5E /* BottomSheetController.swift */,
+				F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		FEA8349D5923511AF5BD1D10 /* Pods */ = {
@@ -346,6 +357,7 @@
 				F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */,
 				F62BE5F12A25AACF0060EB5E /* CoreDataManager.swift in Sources */,
 				F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */,
+				F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */,
 				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
 				F62BE5ED2A24A48A0060EB5E /* IconButton.swift in Sources */,
 				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
@@ -507,7 +519,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치 정보를 받고 싶습니다";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -536,7 +548,7 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치 정보를 받고 싶습니다";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
