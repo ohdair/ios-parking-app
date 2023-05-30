@@ -29,6 +29,7 @@ class SearchBar: UIView {
         textField.borderStyle = .none
 
         searchButton.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        searchButton.tintColor = UIColor(named: "MainColor")
 
         addSubview(textField)
         addSubview(searchButton)
