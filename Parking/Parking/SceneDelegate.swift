@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ParkingViewController()
+        window.rootViewController = LoadingViewController()
         window.makeKeyAndVisible()
         self.window = window
     }

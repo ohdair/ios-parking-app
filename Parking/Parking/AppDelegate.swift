@@ -15,15 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let container = NSPersistentContainer(name: "ParkingPlaces")
         let defaultDirectoryURL = NSPersistentContainer.defaultDirectoryURL()
 
-        let parkingPlaceStoreURL = defaultDirectoryURL.appendingPathComponent("ParkingPlaces.sqlite")
+        let parkingPlaceStoreURL = defaultDirectoryURL.appendingPathComponent("ParkingPlace.sqlite")
         let parkingPlaceStoreDescription = NSPersistentStoreDescription(url: parkingPlaceStoreURL)
         parkingPlaceStoreDescription.configuration = "ParkingPlace"
 
-        let favoriteStoreURL = defaultDirectoryURL.appendingPathComponent("Favorites.sqlite")
-        let favoriteStoreDescription = NSPersistentStoreDescription(url: favoriteStoreURL)
-        favoriteStoreDescription.configuration = "Favorite"
-
-        container.persistentStoreDescriptions = [parkingPlaceStoreDescription, favoriteStoreDescription]
+        container.persistentStoreDescriptions = [parkingPlaceStoreDescription]
 
         container.loadPersistentStores(completionHandler: { (_, error) in
             guard let error = error as NSError? else { return }
@@ -31,28 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
 
         container.viewContext.automaticallyMergesChangesFromParent = true
-        generateDataIfNeeded(context: container.newBackgroundContext())
 
         return container
     }()
-
-    private func generateDataIfNeeded(context: NSManagedObjectContext) {
-        // Asynchronously performs the specified closure on the context’s queue.
-        // This method encapsulates an autorelease pool and a call to processPendingChanges().
-        context.perform {
-            guard let number = try? context.count(for: ParkingPlace.fetchRequest()),
-                  number == 0 else { return }
-
-            let bundle = Bundle(for: type(of: self))
-            guard let filePath = bundle.path(forResource: "전국주차장정보표준데이터", ofType: "json"),
-                  let data = try? String(contentsOfFile: filePath).data(using: .utf8),
-                  let decodedData = try? JSONDecoder().decode(ParkingPlaceDTO.self, from: data) else {
-                return
-            }
-
-            decodedData.createParkingPlaceContext(context: context)
-        }
-    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
