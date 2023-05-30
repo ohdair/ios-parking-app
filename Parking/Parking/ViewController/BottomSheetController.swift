@@ -8,9 +8,12 @@
 import UIKit
 
 class BottomSheetController: UIViewController {
+
+    var parkingPlace: ParkingPlace?
+
     lazy var favoriteButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "EmptiedFavorite"), for: .normal)
+        button.addTarget(self, action: #selector(tappedFavorite), for: .touchUpInside)
         return button
     }()
 
@@ -58,6 +61,7 @@ class BottomSheetController: UIViewController {
     }()
 
     func configure(with parkingPlace: ParkingPlace) {
+        self.parkingPlace = parkingPlace
         let chargeType = ChargeType(rawValue: Int(parkingPlace.chargeType))
         let freeLabel = ChargeLabel()
         let paidLabel = ChargeLabel()
@@ -95,6 +99,12 @@ class BottomSheetController: UIViewController {
             contactNumberLabel.attributedText = attributedText
         }
 
+        if parkingPlace.favorite {
+            favoriteButton.setImage(UIImage(named: "Favorite"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "EmptiedFavorite"), for: .normal)
+        }
+
         parkingNameLabel.text = parkingPlace.name
         addressLabel.text = address
         payLabel.text = payTexts.joined(separator: " / ")
@@ -129,5 +139,18 @@ class BottomSheetController: UIViewController {
             contentsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             contentsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
+    }
+
+    @objc func tappedFavorite() {
+        if let parkingPlace = parkingPlace {
+            if parkingPlace.favorite {
+                favoriteButton.setImage(UIImage(named: "EmptiedFavorite"), for: .normal)
+            } else {
+                favoriteButton.setImage(UIImage(named: "Favorite"), for: .normal)
+            }
+
+            parkingPlace.favorite = !parkingPlace.favorite
+            CoreDataManager.shared.saveContext()
+        }
     }
 }
