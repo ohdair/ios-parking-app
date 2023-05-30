@@ -9,9 +9,8 @@ import UIKit
 import NMapsMap
 import CoreData
 
-class ParkingViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class ParkingViewController: UIViewController {
 
-    private var isLoading = true
     private lazy var persistentContainer: NSPersistentContainer = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         return appDelegate!.persistentContainer
@@ -19,108 +18,93 @@ class ParkingViewController: UIViewController, NSFetchedResultsControllerDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
 
-
-//        let context = persistentContainer.viewContext
-//        let request: NSFetchRequest<ParkingPlace> = ParkingPlace.fetchRequest()
-//
-//        let data = try? context.fetch(request)
-//
-//        print(data?.count ?? 0)
-
-
+        //MARK: - 네이버 맵 띄우기
         let mapView = NMFMapView(frame: view.frame)
         view.addSubview(mapView)
 
-        if let image = UIImage(named: "ParkingPin") {
+        //MARK: - 버튼 2개 추가
+        let favoriteButton = IconButton(type: .favorite)
+        let currentButton = IconButton(type: .currentLocation)
+        view.addSubview(favoriteButton)
+        view.addSubview(currentButton)
 
-            let marker = NMFMarker()
-            marker.iconImage = NMFOverlayImage(image: image)
-//            marker.iconImage = NMFOverlayImage(image: UIImage(systemName: "parkingsign.circle")!)
+        //MARK: - 서치 바
+        let searchBar = SearchBar()
+        view.addSubview(searchBar)
 
-            marker.position = NMGLatLng(lat: 37.5670135, lng: 126.9783740)
-            marker.width = 30
-            marker.height = 42.9
-            marker.mapView = mapView
-            print("성공")
-        }
+        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        currentButton.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
 
-//        do {
-//            let bundle = Bundle(for: type(of: self))
-//            guard let filePath = bundle.path(forResource: "전국주차장정보표준데이터", ofType: "json"),
-//                  let data = try String(contentsOfFile: filePath).data(using: .utf8) else {
-//                return
-//            }
+        NSLayoutConstraint.activate([
+            favoriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            favoriteButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -37),
+            favoriteButton.widthAnchor.constraint(equalToConstant: 60),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+
+        NSLayoutConstraint.activate([
+            currentButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            currentButton.bottomAnchor.constraint(equalTo: favoriteButton.topAnchor, constant: -20),
+            currentButton.widthAnchor.constraint(equalToConstant: 60),
+            currentButton.heightAnchor.constraint(equalToConstant: 60)
+        ])
+
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            searchBar.widthAnchor.constraint(equalToConstant: 335),
+            searchBar.heightAnchor.constraint(equalToConstant: 50),
+            searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+
+        //MARK: - Charge Label
+//        let free = ChargeLabel()
+//        free.configure(type: .free, filled: false)
+//        view.addSubview(free)
 //
-//            let decodedData = try JSONDecoder().decode(ParkingPlaceDTO.self, from: data)
-//            let items = decodedData.convert()
-//            items.interpolate()
-//            print("------------교체 했습니다 ------------")
-//            DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
-//                for idx in 0...100 {
-//                    print(items.items[idx])
-//                }
-//            }
-//        } catch {
-//            print(error)
-//        }
+//        free.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            free.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            free.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            free.widthAnchor.constraint(equalToConstant: 50),
+//            free.heightAnchor.constraint(equalToConstant: 18)
+//        ])
 
-//        let jibunAddress = "서울특별시 종로구 청진동9"
-//        let endpoint = NaverGeocodingAPI(from: jibunAddress)
-//        do {
-//            NetworkRouter().fetchItem(with: try endpoint.urlRequest, model: NaverGeocodingDTO.self) { data, error in
-//                if let error = error {
-//                    print(error)
-//                }
-//                if let data = data {
-//                    print(data.convert())
-//                }
-//            }
-//        } catch {
-//            print(error)
-//        }
+//        MARK: - 주차장 핀 보이기
+        let request = ParkingPlace.fetchRequest()
+        let parkingPlaces = try? persistentContainer.viewContext.fetch(request)
+        parkingPlaces?.forEach { parkingPlace in
+            if let image = UIImage(named: "ParkingPin") {
+                let marker = NMFMarker()
+                marker.iconImage = NMFOverlayImage(image: image)
+                marker.position = NMGLatLng(lat: parkingPlace.latitude, lng: parkingPlace.longitude)
+                marker.width = 30
+                marker.height = 42.9
+                marker.mapView = mapView
+                marker.userInfo = ["data": parkingPlace]
+                marker.touchHandler = { (overlay) -> Bool in
+                    self.showMyViewControllerInACustomizedSheet(with: parkingPlace)
+                    return true
+                }
+            }
+        }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = .orange
-//        let request = ParkingPlace.fetchRequest()
-//        request.sortDescriptors = [NSSortDescriptor(key: "number", ascending: true)]
-//
-//        let controller = NSFetchedResultsController(fetchRequest: request,
-//                                                    managedObjectContext: persistentContainer.viewContext,
-//                                                    sectionNameKeyPath: nil, cacheName: nil)
-//        controller.delegate = self
-//        try? controller.performFetch()
-//        let fetchedObject = controller.fetchedObjects
-//
-//        while isLoading, let number = fetchedObject?.count {
-//            if number > 900 {
-//                isLoading = false
-//            }
-//            print("entitiy's count is ", number)
-//
-//        }
-//        while isLoading, let number = try? persistentContainer.viewContext.count(for: request) {
-//            if number > 900 {
-//                isLoading = false
-//            }
-//            print("entitiy's count is ", number)
-//
-//        }
+    func showMyViewControllerInACustomizedSheet(with parkPlace: ParkingPlace) {
 
-//        let context = persistentContainer.viewContext
-//        let request: NSFetchRequest<ParkingPlace> = ParkingPlace.fetchRequest()
-//
-//        while isLoading, let data = try? context.fetch(request) {
-//            let number = data.count
-//            if number > 900 {
-//                isLoading = false
-//            }
-//            print("entitiy's count is ", number)
-//
-//        }
+        let viewControllerToPresent = BottomSheetController()
+        viewControllerToPresent.configure(with: parkPlace)
+        if let sheet = viewControllerToPresent.sheetPresentationController {
+            sheet.detents = [.custom { context in return 180}]
+//            sheet.largestUndimmedDetentIdentifier = .medium
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+            sheet.prefersEdgeAttachedInCompactHeight = true
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+            sheet.preferredCornerRadius = 20
+        }
 
-        view.backgroundColor = .systemYellow
+        present(viewControllerToPresent, animated: true, completion: nil)
     }
 }
