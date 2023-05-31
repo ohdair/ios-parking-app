@@ -91,7 +91,6 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
 
         let viewControllerToPresent = BottomSheetController()
         viewControllerToPresent.configure(with: parkPlace)
-        print(parkPlace.favorite)
         if let sheet = viewControllerToPresent.sheetPresentationController {
             sheet.detents = [.custom { context in return 180}]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false
