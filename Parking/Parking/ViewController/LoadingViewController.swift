@@ -52,10 +52,12 @@ class LoadingViewController: UIViewController {
         context.perform {
             guard let number = try? context.count(for: ParkingPlace.fetchRequest()),
                   number == 0 else {
-                let newViewController = ParkingViewController()
-                let navigationController = UINavigationController(rootViewController: newViewController)
-                navigationController.modalPresentationStyle = .fullScreen
-                self.present(navigationController, animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    let newViewController = ParkingViewController()
+                    let navigationController = UINavigationController(rootViewController: newViewController)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    self.present(navigationController, animated: true, completion: nil)
+                }
                 return
             }
 
