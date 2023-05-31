@@ -37,9 +37,9 @@
 		F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */; };
 		F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF42A1D9737001F08DE /* GeoCode.swift */; };
 		F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E28682A2336910024EDFB /* ParkingPlace.swift */; };
-		F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */; };
 		F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */; };
 		F698FD632A26569700F46F52 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD622A26569700F46F52 /* FavoriteViewCell.swift */; };
+		F698FD662A271C7000F46F52 /* ParkingPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F698FD642A271C7000F46F52 /* ParkingPlaces.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,9 +78,9 @@
 		F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAPI.swift; sourceTree = "<group>"; };
 		F641FCF42A1D9737001F08DE /* GeoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCode.swift; sourceTree = "<group>"; };
 		F66E28682A2336910024EDFB /* ParkingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlace.swift; sourceTree = "<group>"; };
-		F68EF0FA2A20924E00DA0768 /* ParkingPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkingPlaces.xcdatamodel; sourceTree = "<group>"; };
 		F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F698FD622A26569700F46F52 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
+		F698FD652A271C7000F46F52 /* ParkingPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkingPlaces.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +210,7 @@
 		F68EF0F82A20924E00DA0768 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */,
+				F698FD642A271C7000F46F52 /* ParkingPlaces.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -358,8 +358,8 @@
 				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
 				F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */,
+				F698FD662A271C7000F46F52 /* ParkingPlaces.xcdatamodeld in Sources */,
 				F62BE5F12A25AACF0060EB5E /* CoreDataManager.swift in Sources */,
-				F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */,
 				F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */,
 				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
 				F62BE5ED2A24A48A0060EB5E /* IconButton.swift in Sources */,
@@ -520,7 +520,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UGA9SV6W29;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치 정보를 받고 싶습니다";
@@ -549,7 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = UGA9SV6W29;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Parking/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "사용자의 위치 정보를 받고 싶습니다";
@@ -594,12 +594,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */ = {
+		F698FD642A271C7000F46F52 /* ParkingPlaces.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				F68EF0FA2A20924E00DA0768 /* ParkingPlaces.xcdatamodel */,
+				F698FD652A271C7000F46F52 /* ParkingPlaces.xcdatamodel */,
 			);
-			currentVersion = F68EF0FA2A20924E00DA0768 /* ParkingPlaces.xcdatamodel */;
+			currentVersion = F698FD652A271C7000F46F52 /* ParkingPlaces.xcdatamodel */;
 			path = ParkingPlaces.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

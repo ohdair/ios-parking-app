@@ -12,9 +12,10 @@ class CoreDataManager {
     static let shared: CoreDataManager = CoreDataManager()
 
     let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-    lazy var context = appDelegate?.persistentContainer.viewContext
+    lazy var container = appDelegate?.persistentContainer
+    lazy var context = container?.viewContext
 
-    func getParkingPlaces() -> [ParkingPlace] {
+    func fetchParkingPlaces() -> [ParkingPlace] {
         var models: [ParkingPlace] = [ParkingPlace]()
         let request = ParkingPlace.fetchRequest()
         guard let context = context else {
@@ -28,6 +29,46 @@ class CoreDataManager {
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
         return models
+    }
+
+    func fetchFavorites() -> [ParkingPlace] {
+        var object: [ParkingPlace] = [ParkingPlace]()
+        guard let context = context,
+              let request = container?.managedObjectModel.fetchRequestTemplate(forName: "favorites") as? NSFetchRequest<ParkingPlace> else {
+            return object
+        }
+
+        do {
+            object = try context.fetch(request)
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+
+        return object
+    }
+
+    func fetchLocation(with searchText: String) -> Coordinate? {
+        var coordinate: Coordinate?
+        let request: NSFetchRequest<ParkingPlace> = ParkingPlace.fetchRequest()
+        let predicate = NSPredicate(format: "name CONTAINS %@", searchText)
+        request.predicate = predicate
+
+        guard let context = context else {
+            return coordinate
+        }
+        do {
+            let items = try context.fetch(request)
+            guard let latitude = items.first?.latitude,
+                  let longitude = items.first?.longitude else {
+                return coordinate
+            }
+            coordinate = Coordinate(latitude: latitude, longitude: longitude)
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        return coordinate
     }
 
     func saveContext() {

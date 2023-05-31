@@ -19,7 +19,7 @@ class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        data = fetchResults()
+        data = CoreDataManager.shared.fetchFavorites()
         view.backgroundColor = .white
         title = "즐겨찾기"
 
@@ -47,23 +47,6 @@ class FavoriteViewController: UIViewController {
     @objc func tappedBackButton() {
         navigationController?.popViewController(animated: true)
     }
-
-    private func fetchResults() -> [ParkingPlace] {
-        var object: [ParkingPlace] = [ParkingPlace]()
-        guard let request = persistentContainer.managedObjectModel.fetchRequestTemplate(forName: "favorites") as? NSFetchRequest<ParkingPlace> else {
-            return object
-        }
-        let context = persistentContainer.viewContext
-
-        do {
-            object = try context.fetch(request)
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-
-        return object
-    }
 }
 
 extension FavoriteViewController: UITableViewDataSource {
@@ -88,7 +71,7 @@ extension FavoriteViewController: UITableViewDataSource {
         if editingStyle == .delete {
             data[indexPath.section].favorite = false
             CoreDataManager.shared.saveContext()
-            data = fetchResults()
+            data = CoreDataManager.shared.fetchFavorites()
             tableView.deleteSections(IndexSet([indexPath.section]), with: .fade)
         }
     }
