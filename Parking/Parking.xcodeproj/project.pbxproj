@@ -39,6 +39,7 @@
 		F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E28682A2336910024EDFB /* ParkingPlace.swift */; };
 		F68EF0FB2A20924E00DA0768 /* ParkingPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F68EF0F92A20924E00DA0768 /* ParkingPlaces.xcdatamodeld */; };
 		F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */; };
+		F698FD632A26569700F46F52 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD622A26569700F46F52 /* FavoriteViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		F66E28682A2336910024EDFB /* ParkingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlace.swift; sourceTree = "<group>"; };
 		F68EF0FA2A20924E00DA0768 /* ParkingPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkingPlaces.xcdatamodel; sourceTree = "<group>"; };
 		F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		F698FD622A26569700F46F52 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				F6089D6B2A2457AD002BE789 /* ParkingPlaceMarker.swift */,
 				F62BE5EC2A24A48A0060EB5E /* IconButton.swift */,
 				F62BE5EE2A25863C0060EB5E /* SearchBar.swift */,
+				F698FD622A26569700F46F52 /* FavoriteViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
 				F641FCC92A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift in Sources */,
 				F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */,
+				F698FD632A26569700F46F52 /* FavoriteViewCell.swift in Sources */,
 				F62BE5F92A2602960060EB5E /* LoadingViewController.swift in Sources */,
 				F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */,
 				F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */,

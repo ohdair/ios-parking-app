@@ -40,19 +40,10 @@ class LoadingViewController: UIViewController {
         generateDataIfNeeded(context: persistentContainer.viewContext)
     }
 
-
     private func startMovingAnimation() {
         UIView.animate(withDuration: 1.0, delay: 0, options: [.autoreverse, .repeat], animations: {
             self.movingView.transform = CGAffineTransform(translationX: 0, y: 20)
         }, completion: nil)
-    }
-
-    @objc func handleNotification(_ notification: Notification) {
-        if let _ = notification.userInfo?["done"] as? Bool {
-            print("도달했어요")
-            let newViewController = ParkingViewController()
-            present(newViewController, animated: true)
-        }
     }
 
     private func generateDataIfNeeded(context: NSManagedObjectContext) {
@@ -62,8 +53,9 @@ class LoadingViewController: UIViewController {
             guard let number = try? context.count(for: ParkingPlace.fetchRequest()),
                   number == 0 else {
                 let newViewController = ParkingViewController()
-                newViewController.modalPresentationStyle = .fullScreen
-                self.present(newViewController, animated: true)
+                let navigationController = UINavigationController(rootViewController: newViewController)
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true, completion: nil)
                 return
             }
 
@@ -83,8 +75,9 @@ class LoadingViewController: UIViewController {
                 }
         
                 let newViewController = ParkingViewController()
-                newViewController.modalPresentationStyle = .fullScreen
-                self.present(newViewController, animated: true)
+                let navigationController = UINavigationController(rootViewController: newViewController)
+                navigationController.modalPresentationStyle = .fullScreen
+                self.present(navigationController, animated: true, completion: nil)
             }
         }
     }

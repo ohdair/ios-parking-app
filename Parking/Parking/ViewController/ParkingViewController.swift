@@ -20,6 +20,10 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
     lazy var mapView = NMFMapView(frame: view.frame)
     var locationManager = CLLocationManager()
 
+    let favoriteButton = IconButton(type: .favorite)
+    let currentButton = IconButton(type: .currentLocation)
+    let searchBar = SearchBar()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
@@ -28,17 +32,35 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
         //MARK: - 네이버 맵 띄우기
         view.addSubview(mapView)
 
-        //MARK: - 버튼 2개 추가
-        let favoriteButton = IconButton(type: .favorite)
-        let currentButton = IconButton(type: .currentLocation)
+        favoriteButton.addTarget(self, action: #selector(tappedFavorite), for: .touchUpInside)
         currentButton.addTarget(self, action: #selector(tappedCurrentLocation), for: .touchUpInside)
         view.addSubview(favoriteButton)
         view.addSubview(currentButton)
-
-        //MARK: - 서치 바
-        let searchBar = SearchBar()
         view.addSubview(searchBar)
 
+//        MARK: - 주차장 핀 보이기
+        let request = ParkingPlace.fetchRequest()
+        let parkingPlaces = try? persistentContainer.viewContext.fetch(request)
+        parkingPlaces?.forEach { parkingPlace in
+            if let image = UIImage(named: "ParkingPin") {
+                let marker = NMFMarker()
+                marker.iconImage = NMFOverlayImage(image: image)
+                marker.position = NMGLatLng(lat: parkingPlace.latitude, lng: parkingPlace.longitude)
+                marker.width = 30
+                marker.height = 42.9
+                marker.mapView = mapView
+                marker.userInfo = ["data": parkingPlace]
+                marker.touchHandler = { (overlay) -> Bool in
+                    self.showMyViewControllerInACustomizedSheet(with: parkingPlace)
+                    return true
+                }
+            }
+        }
+
+        setAutoLayout()
+    }
+
+    private func setAutoLayout() {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         currentButton.translatesAutoresizingMaskIntoConstraints = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
@@ -63,39 +85,6 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
             searchBar.heightAnchor.constraint(equalToConstant: 50),
             searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-
-        //MARK: - Charge Label
-//        let free = ChargeLabel()
-//        free.configure(type: .free, filled: false)
-//        view.addSubview(free)
-//
-//        free.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            free.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            free.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            free.widthAnchor.constraint(equalToConstant: 50),
-//            free.heightAnchor.constraint(equalToConstant: 18)
-//        ])
-
-//        MARK: - 주차장 핀 보이기
-        let request = ParkingPlace.fetchRequest()
-        let parkingPlaces = try? persistentContainer.viewContext.fetch(request)
-        parkingPlaces?.forEach { parkingPlace in
-            if let image = UIImage(named: "ParkingPin") {
-                let marker = NMFMarker()
-                marker.iconImage = NMFOverlayImage(image: image)
-                marker.position = NMGLatLng(lat: parkingPlace.latitude, lng: parkingPlace.longitude)
-                marker.width = 30
-                marker.height = 42.9
-                marker.mapView = mapView
-                marker.userInfo = ["data": parkingPlace]
-                marker.touchHandler = { (overlay) -> Bool in
-                    self.showMyViewControllerInACustomizedSheet(with: parkingPlace)
-                    return true
-                }
-            }
-        }
     }
 
     func showMyViewControllerInACustomizedSheet(with parkPlace: ParkingPlace) {
@@ -125,5 +114,10 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
             let cameraUpdate = NMFCameraUpdate(scrollTo: currentLocation)
             mapView.moveCamera(cameraUpdate)
         }
+    }
+
+    @objc func tappedFavorite() {
+        let nextViewController = FavoriteViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
