@@ -49,6 +49,12 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
                 marker.mapView = mapView
                 marker.userInfo = ["data": parkingPlace]
                 marker.touchHandler = { (overlay) -> Bool in
+                    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: parkingPlace.latitude,
+                                                                           lng: parkingPlace.longitude),
+                                                       zoomTo: 15)
+                    cameraUpdate.animation = .fly
+                    cameraUpdate.animationDuration = 1.0
+                    self.mapView.moveCamera(cameraUpdate)
                     self.showMyViewControllerInACustomizedSheet(with: parkingPlace)
                     return true
                 }
@@ -107,6 +113,18 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
 
     @objc func tappedFavorite() {
         let nextViewController = FavoriteViewController()
+        nextViewController.delegate = self
         navigationController?.pushViewController(nextViewController, animated: true)
+    }
+}
+
+extension ParkingViewController: FavoriteViewControllerDelegate {
+    func cameraUpdate(with coordinate: Coordinate) {
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: coordinate.latitude,
+                                                               lng: coordinate.longitude),
+                                           zoomTo: 15)
+        cameraUpdate.animation = .fly
+        cameraUpdate.animationDuration = 1.0
+        self.mapView.moveCamera(cameraUpdate)
     }
 }

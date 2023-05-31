@@ -16,6 +16,7 @@ class FavoriteViewController: UIViewController {
 
     var data = [ParkingPlace]()
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    weak var delegate: FavoriteViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,10 +76,20 @@ extension FavoriteViewController: UITableViewDataSource {
             tableView.deleteSections(IndexSet([indexPath.section]), with: .fade)
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.popViewController(animated: true)
+        let coordinate = Coordinate(latitude: data[indexPath.section].latitude, longitude: data[indexPath.section].longitude)
+        delegate?.cameraUpdate(with: coordinate)
+    }
 }
 
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         110
     }
+}
+
+protocol FavoriteViewControllerDelegate: NSObject {
+    func cameraUpdate(with: Coordinate)
 }
