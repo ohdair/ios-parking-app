@@ -22,7 +22,6 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
 
     let favoriteButton = IconButton(type: .favorite)
     let currentButton = IconButton(type: .currentLocation)
-    let searchBar = SearchBar()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +35,6 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
         currentButton.addTarget(self, action: #selector(tappedCurrentLocation), for: .touchUpInside)
         view.addSubview(favoriteButton)
         view.addSubview(currentButton)
-        view.addSubview(searchBar)
 
 //        MARK: - 주차장 핀 보이기
         let request = ParkingPlace.fetchRequest()
@@ -63,7 +61,6 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
     private func setAutoLayout() {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         currentButton.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             favoriteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
@@ -77,13 +74,6 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
             currentButton.bottomAnchor.constraint(equalTo: favoriteButton.topAnchor, constant: -20),
             currentButton.widthAnchor.constraint(equalToConstant: 60),
             currentButton.heightAnchor.constraint(equalToConstant: 60)
-        ])
-
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
-            searchBar.widthAnchor.constraint(equalToConstant: 335),
-            searchBar.heightAnchor.constraint(equalToConstant: 50),
-            searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 
