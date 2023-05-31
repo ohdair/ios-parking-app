@@ -14,27 +14,12 @@ class FavoriteViewController: UIViewController {
         return appDelegate!.persistentContainer
     }()
 
-    private lazy var fetchedResults: [ParkingPlace] = {
-        var object: [ParkingPlace] = [ParkingPlace]()
-        guard let request = persistentContainer.managedObjectModel.fetchRequestTemplate(forName: "favorites") as? NSFetchRequest<ParkingPlace> else {
-            return object
-        }
-        let context = persistentContainer.viewContext
-
-        do {
-            object = try context.fetch(request)
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-
-        return object
-    }()
-
+    var data = [ParkingPlace]()
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        data = fetchResults()
         view.backgroundColor = .white
         title = "즐겨찾기"
 
@@ -62,12 +47,29 @@ class FavoriteViewController: UIViewController {
     @objc func tappedBackButton() {
         navigationController?.popViewController(animated: true)
     }
+
+    private func fetchResults() -> [ParkingPlace] {
+        var object: [ParkingPlace] = [ParkingPlace]()
+        guard let request = persistentContainer.managedObjectModel.fetchRequestTemplate(forName: "favorites") as? NSFetchRequest<ParkingPlace> else {
+            return object
+        }
+        let context = persistentContainer.viewContext
+
+        do {
+            object = try context.fetch(request)
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+
+        return object
+    }
 }
 
 extension FavoriteViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResults.count
+        return data.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -77,9 +79,18 @@ extension FavoriteViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteViewCell", for: indexPath) as? FavoriteViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: fetchedResults[indexPath.section])
+        cell.configure(with: data[indexPath.section])
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            data[indexPath.section].favorite = false
+            CoreDataManager.shared.saveContext()
+            data = fetchResults()
+            tableView.deleteSections(IndexSet([indexPath.section]), with: .fade)
+        }
     }
 }
 
