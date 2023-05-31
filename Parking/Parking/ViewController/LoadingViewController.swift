@@ -47,12 +47,10 @@ class LoadingViewController: UIViewController {
     }
 
     private func generateDataIfNeeded(context: NSManagedObjectContext) {
-        // Asynchronously performs the specified closure on the context’s queue.
-        // This method encapsulates an autorelease pool and a call to processPendingChanges().
         context.perform {
             guard let number = try? context.count(for: ParkingPlace.fetchRequest()),
                   number == 0 else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                     let newViewController = ParkingViewController()
                     let navigationController = UINavigationController(rootViewController: newViewController)
                     navigationController.modalPresentationStyle = .fullScreen
