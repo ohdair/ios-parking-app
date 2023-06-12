@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct ParkingPlaceDTO: Decodable {
+struct ParkingPlaceBodyDTO: Decodable {
     let fields: [ParkingPlaceFieldDTO]
     let records: [ParkingPlaceItemDTO]
 
@@ -18,7 +18,7 @@ struct ParkingPlaceDTO: Decodable {
     }
 }
 
-extension ParkingPlaceDTO {
+extension ParkingPlaceBodyDTO {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         records = try container.decode([ParkingPlaceItemDTO].self, forKey: .records)
@@ -26,7 +26,7 @@ extension ParkingPlaceDTO {
     }
 }
 
-extension ParkingPlaceDTO {
+extension ParkingPlaceBodyDTO {
     func createParkingPlaceContext(context: NSManagedObjectContext) async {
         records.forEach { record in
             guard let number = Int64(record.parkingPlaceNumber.components(separatedBy: "-").joined()) else {
@@ -34,10 +34,10 @@ extension ParkingPlaceDTO {
             }
             let operatingDays = record.operatingDays.components(separatedBy: "+")
             let chargeType: ChargeType = record.parkingchargeInformation == "무료" ? .free : .paid
-            let baseTime = Int16(record.basicTime) ?? 0
-            let baseAmount = Int16(record.basicCharge) ?? 0
-            let additionalTime = Int16(record.additionalUnitTime) ?? 0
-            let additionalAmount = Int16(record.additionalUnitCharge) ?? 0
+            let baseTime = Int64(record.basicTime) ?? 0
+            let baseAmount = Int64(record.basicCharge) ?? 0
+            let additionalTime = Int64(record.additionalUnitTime) ?? 0
+            let additionalAmount = Int64(record.additionalUnitCharge) ?? 0
 
             let newParkingPlace = ParkingPlace(context: context)
             newParkingPlace.number = number

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import FirebaseDatabase
 
 class LoadingViewController: UIViewController {
     private lazy var persistentContainer: NSPersistentContainer = {
@@ -20,10 +21,12 @@ class LoadingViewController: UIViewController {
         return view
     }()
 
+    private var ref: DatabaseReference?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
 
-//        print(fetchedResultsController.fetchedObjects?.count ?? 0)
         view.addSubview(movingView)
         view.backgroundColor = UIColor(red: 7 / 256, green: 69 / 256, blue: 191 / 256, alpha: 1)
         movingView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +39,7 @@ class LoadingViewController: UIViewController {
         ])
 
         startMovingAnimation()
-        
+
         generateDataIfNeeded(context: persistentContainer.viewContext)
     }
 
@@ -59,25 +62,32 @@ class LoadingViewController: UIViewController {
                 return
             }
 
-            let bundle = Bundle(for: type(of: self))
-            guard let filePath = bundle.path(forResource: "전국주차장정보표준데이터", ofType: "json"),
-                  let data = try? String(contentsOfFile: filePath).data(using: .utf8),
-                  let decodedData = try? JSONDecoder().decode(ParkingPlaceDTO.self, from: data) else {
-                return
-            }
-            Task {
-                await decodedData.createParkingPlaceContext(context: context)
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            self.ref?.child("data").observe(.value) { snapshot in
+                guard let snapshot = snapshot.value as? [String] else {
+                    print("Error: 서버에 문제가 발생했습니다")
+                    return
                 }
-        
-                let newViewController = ParkingViewController()
-                let navigationController = UINavigationController(rootViewController: newViewController)
-                navigationController.modalPresentationStyle = .fullScreen
-                self.present(navigationController, animated: true, completion: nil)
+
+                DispatchQueue.main.async {
+                    snapshot.forEach { dataString in
+                        if let data = dataString.data(using: .utf8),
+                           let decodedData = try? JSONDecoder().decode(ParkingPlaceDTO.self, from: data) {
+                            decodedData.createParkingPlaceContext(context: context)
+                        }
+                    }
+
+                    do {
+                        try context.save()
+                    } catch {
+                        let nserror = error as NSError
+                        fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                    }
+
+                    let newViewController = ParkingViewController()
+                    let navigationController = UINavigationController(rootViewController: newViewController)
+                    navigationController.modalPresentationStyle = .fullScreen
+                    self.present(navigationController, animated: true, completion: nil)
+                }
             }
         }
     }
