@@ -51,12 +51,8 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
                 marker.mapView = mapView
                 marker.userInfo = ["data": parkingPlace]
                 marker.touchHandler = { (overlay) -> Bool in
-                    let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: parkingPlace.latitude,
-                                                                           lng: parkingPlace.longitude),
-                                                       zoomTo: 15)
-                    cameraUpdate.animation = .fly
-                    cameraUpdate.animationDuration = 1.0
-                    self.mapView.moveCamera(cameraUpdate)
+                    let coordinate = Coordinate(latitude: parkingPlace.latitude, longitude: parkingPlace.longitude)
+                    self.cameraUpdate(with: coordinate)
                     self.showMyViewControllerInACustomizedSheet(with: parkingPlace)
                     return true
                 }
@@ -107,9 +103,9 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
         }
         if let location = locationManager.location {
             mapView.positionMode = .normal
-            let currentLocation = NMGLatLng(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
-            let cameraUpdate = NMFCameraUpdate(scrollTo: currentLocation)
-            mapView.moveCamera(cameraUpdate)
+            let currentLocation = Coordinate(latitude: location.coordinate.latitude,
+                                             longitude: location.coordinate.longitude)
+            self.cameraUpdate(with: currentLocation)
         }
     }
 
