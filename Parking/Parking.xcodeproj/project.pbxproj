@@ -19,28 +19,14 @@
 		F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC422A1714B6001F08DE /* ParkingViewController.swift */; };
 		F641FC482A1714B7001F08DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F641FC472A1714B7001F08DE /* Assets.xcassets */; };
 		F641FC4B2A1714B7001F08DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F641FC492A1714B7001F08DE /* LaunchScreen.storyboard */; };
-		F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC582A17657C001F08DE /* HTTPMethod.swift */; };
-		F641FC5B2A176595001F08DE /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5A2A176595001F08DE /* Endpoint.swift */; };
-		F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC5C2A176628001F08DE /* NetworkError.swift */; };
-		F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC602A19015E001F08DE /* NetworkRouter.swift */; };
-		F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */; };
-		F641FC6C2A1911CD001F08DE /* ParkingPlaceItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */; };
 		F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC702A1B31A0001F08DE /* Coordinate.swift */; };
 		F641FC772A1B31D5001F08DE /* ChargeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FC762A1B31D5001F08DE /* ChargeType.swift */; };
-		F641FCC12A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC02A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift */; };
-		F641FCC52A1C8B06001F08DE /* NaverGeocodingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC42A1C8B06001F08DE /* NaverGeocodingDTO.swift */; };
-		F641FCC92A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCC82A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift */; };
-		F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */; };
-		F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */; };
-		F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */; };
-		F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F641FCF42A1D9737001F08DE /* GeoCode.swift */; };
-		F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E28682A2336910024EDFB /* ParkingPlace.swift */; };
 		F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */; };
 		F698FD632A26569700F46F52 /* FavoriteViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F698FD622A26569700F46F52 /* FavoriteViewCell.swift */; };
 		F698FD662A271C7000F46F52 /* ParkingPlaces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F698FD642A271C7000F46F52 /* ParkingPlaces.xcdatamodeld */; };
 		F6AADA052A36EAE500897ED0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F6AADA042A36EAE500897ED0 /* FirebaseDatabase */; };
-		F6AADA072A36EB0400897ED0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6AADA062A36EB0400897ED0 /* GoogleService-Info.plist */; };
 		F6AADA092A36F13800897ED0 /* ParkingPlaceDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AADA082A36F13800897ED0 /* ParkingPlaceDTO.swift */; };
+		F6AADA0B2A370B7800897ED0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6AADA0A2A370B7800897ED0 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,27 +47,13 @@
 		F641FC4A2A1714B7001F08DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F641FC4C2A1714B7001F08DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F641FC522A173541001F08DE /* APIKeys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = APIKeys.xcconfig; sourceTree = "<group>"; };
-		F641FC582A17657C001F08DE /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		F641FC5A2A176595001F08DE /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		F641FC5C2A176628001F08DE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		F641FC602A19015E001F08DE /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
-		F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceBodyDTO.swift; sourceTree = "<group>"; };
-		F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceItemDTO.swift; sourceTree = "<group>"; };
 		F641FC702A1B31A0001F08DE /* Coordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		F641FC762A1B31D5001F08DE /* ChargeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargeType.swift; sourceTree = "<group>"; };
-		F641FCC02A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceFieldDTO.swift; sourceTree = "<group>"; };
-		F641FCC42A1C8B06001F08DE /* NaverGeocodingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingDTO.swift; sourceTree = "<group>"; };
-		F641FCC82A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAddressDTO.swift; sourceTree = "<group>"; };
-		F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAddressElementDTO.swift; sourceTree = "<group>"; };
-		F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingMetaDTO.swift; sourceTree = "<group>"; };
-		F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverGeocodingAPI.swift; sourceTree = "<group>"; };
-		F641FCF42A1D9737001F08DE /* GeoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCode.swift; sourceTree = "<group>"; };
-		F66E28682A2336910024EDFB /* ParkingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlace.swift; sourceTree = "<group>"; };
 		F698FD5F2A2633D800F46F52 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		F698FD622A26569700F46F52 /* FavoriteViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewCell.swift; sourceTree = "<group>"; };
 		F698FD652A271C7000F46F52 /* ParkingPlaces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ParkingPlaces.xcdatamodel; sourceTree = "<group>"; };
-		F6AADA062A36EB0400897ED0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F6AADA082A36F13800897ED0 /* ParkingPlaceDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingPlaceDTO.swift; sourceTree = "<group>"; };
+		F6AADA0A2A370B7800897ED0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,73 +112,27 @@
 				F641FC3E2A1714B6001F08DE /* AppDelegate.swift */,
 				F641FC402A1714B6001F08DE /* SceneDelegate.swift */,
 				F68EF0F82A20924E00DA0768 /* CoreData */,
-				F641FC572A176562001F08DE /* Network */,
 				F698FD612A2633FE00F46F52 /* ViewController */,
 				F6089D6A2A245781002BE789 /* View */,
 				F641FC6D2A1B3137001F08DE /* Model */,
-				F641FCC62A1C8E77001F08DE /* DTO */,
 				F641FC472A1714B7001F08DE /* Assets.xcassets */,
 				F641FC492A1714B7001F08DE /* LaunchScreen.storyboard */,
 				F641FC4C2A1714B7001F08DE /* Info.plist */,
-				F6AADA062A36EB0400897ED0 /* GoogleService-Info.plist */,
+				F6AADA0A2A370B7800897ED0 /* GoogleService-Info.plist */,
 				F641FC522A173541001F08DE /* APIKeys.xcconfig */,
 				F62BE5F02A25AACF0060EB5E /* CoreDataManager.swift */,
 			);
 			path = Parking;
 			sourceTree = "<group>";
 		};
-		F641FC572A176562001F08DE /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				F641FC5A2A176595001F08DE /* Endpoint.swift */,
-				F641FCF22A1CA3EA001F08DE /* NaverGeocodingAPI.swift */,
-				F641FC582A17657C001F08DE /* HTTPMethod.swift */,
-				F641FC602A19015E001F08DE /* NetworkRouter.swift */,
-				F641FC5C2A176628001F08DE /* NetworkError.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		F641FC662A191016001F08DE /* ParkingPlaceDTO */ = {
-			isa = PBXGroup;
-			children = (
-				F641FC692A19113B001F08DE /* ParkingPlaceBodyDTO.swift */,
-				F641FCC02A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift */,
-				F641FC6B2A1911CD001F08DE /* ParkingPlaceItemDTO.swift */,
-			);
-			path = ParkingPlaceDTO;
-			sourceTree = "<group>";
-		};
 		F641FC6D2A1B3137001F08DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F641FCF42A1D9737001F08DE /* GeoCode.swift */,
-				F66E28682A2336910024EDFB /* ParkingPlace.swift */,
 				F6AADA082A36F13800897ED0 /* ParkingPlaceDTO.swift */,
 				F641FC702A1B31A0001F08DE /* Coordinate.swift */,
 				F641FC762A1B31D5001F08DE /* ChargeType.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		F641FCC62A1C8E77001F08DE /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-				F641FCC72A1C8E84001F08DE /* NaverGeocodingDTO */,
-				F641FC662A191016001F08DE /* ParkingPlaceDTO */,
-			);
-			path = DTO;
-			sourceTree = "<group>";
-		};
-		F641FCC72A1C8E84001F08DE /* NaverGeocodingDTO */ = {
-			isa = PBXGroup;
-			children = (
-				F641FCC42A1C8B06001F08DE /* NaverGeocodingDTO.swift */,
-				F641FCC82A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift */,
-				F641FCCA2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift */,
-				F641FCCC2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift */,
-			);
-			path = NaverGeocodingDTO;
 			sourceTree = "<group>";
 		};
 		F68EF0F82A20924E00DA0768 /* CoreData */ = {
@@ -304,8 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F641FC4B2A1714B7001F08DE /* LaunchScreen.storyboard in Resources */,
+				F6AADA0B2A370B7800897ED0 /* GoogleService-Info.plist in Resources */,
 				F641FC482A1714B7001F08DE /* Assets.xcassets in Resources */,
-				F6AADA072A36EB0400897ED0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,35 +284,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F641FCC52A1C8B06001F08DE /* NaverGeocodingDTO.swift in Sources */,
 				F62BE5F72A25BDD20060EB5E /* ChargeLabel.swift in Sources */,
 				F6AADA092A36F13800897ED0 /* ParkingPlaceDTO.swift in Sources */,
 				F641FC432A1714B6001F08DE /* ParkingViewController.swift in Sources */,
 				F62BE5F52A25B9420060EB5E /* BottomSheetController.swift in Sources */,
 				F6089D6C2A2457AD002BE789 /* ParkingPlaceMarker.swift in Sources */,
-				F641FC5D2A176628001F08DE /* NetworkError.swift in Sources */,
 				F641FC712A1B31A0001F08DE /* Coordinate.swift in Sources */,
-				F66E28692A2336910024EDFB /* ParkingPlace.swift in Sources */,
 				F698FD662A271C7000F46F52 /* ParkingPlaces.xcdatamodeld in Sources */,
 				F62BE5F12A25AACF0060EB5E /* CoreDataManager.swift in Sources */,
 				F698FD602A2633D800F46F52 /* FavoriteViewController.swift in Sources */,
-				F641FCF52A1D9737001F08DE /* GeoCode.swift in Sources */,
 				F62BE5ED2A24A48A0060EB5E /* IconButton.swift in Sources */,
-				F641FCCD2A1C8EE0001F08DE /* NaverGeocodingMetaDTO.swift in Sources */,
-				F641FC6A2A19113B001F08DE /* ParkingPlaceBodyDTO.swift in Sources */,
 				F641FC3F2A1714B6001F08DE /* AppDelegate.swift in Sources */,
-				F641FC5B2A176595001F08DE /* Endpoint.swift in Sources */,
-				F641FCC12A1C7E21001F08DE /* ParkingPlaceFieldDTO.swift in Sources */,
 				F641FC772A1B31D5001F08DE /* ChargeType.swift in Sources */,
-				F641FCF32A1CA3EA001F08DE /* NaverGeocodingAPI.swift in Sources */,
-				F641FC592A17657C001F08DE /* HTTPMethod.swift in Sources */,
-				F641FCC92A1C8EA7001F08DE /* NaverGeocodingAddressDTO.swift in Sources */,
-				F641FCCB2A1C8EC8001F08DE /* NaverGeocodingAddressElementDTO.swift in Sources */,
 				F698FD632A26569700F46F52 /* FavoriteViewCell.swift in Sources */,
 				F62BE5F92A2602960060EB5E /* LoadingViewController.swift in Sources */,
 				F641FC412A1714B6001F08DE /* SceneDelegate.swift in Sources */,
-				F641FC612A19015E001F08DE /* NetworkRouter.swift in Sources */,
-				F641FC6C2A1911CD001F08DE /* ParkingPlaceItemDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
