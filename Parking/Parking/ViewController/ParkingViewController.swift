@@ -40,7 +40,9 @@ class ParkingViewController: UIViewController, CLLocationManagerDelegate {
         let request = ParkingPlace.fetchRequest()
         let parkingPlaces = try? persistentContainer.viewContext.fetch(request)
         parkingPlaces?.forEach { parkingPlace in
-            if let image = UIImage(named: "ParkingPin") {
+            if !parkingPlace.latitude.isZero,
+               !parkingPlace.longitude.isZero,
+               let image = UIImage(named: "ParkingPin") {
                 let marker = NMFMarker()
                 marker.iconImage = NMFOverlayImage(image: image)
                 marker.position = NMGLatLng(lat: parkingPlace.latitude, lng: parkingPlace.longitude)
