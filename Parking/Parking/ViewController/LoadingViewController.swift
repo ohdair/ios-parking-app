@@ -51,22 +51,27 @@ class LoadingViewController: UIViewController {
 
     private func generateDataIfNeeded(context: NSManagedObjectContext) {
         context.perform {
-            guard let number = try? context.count(for: ParkingPlace.fetchRequest()),
-                  number == 0 else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                    let newViewController = ParkingViewController()
-                    let navigationController = UINavigationController(rootViewController: newViewController)
-                    navigationController.modalPresentationStyle = .fullScreen
-                    self.present(navigationController, animated: true, completion: nil)
-                }
-                return
-            }
 
+            //MARK: - 코어 데이터 갯수 확인 (비동기)
+            let numberOfCoredata = try? context.count(for: ParkingPlace.fetchRequest())
+
+            //MARK: - Firebase 데이터 갯수 확인 (비동기)
             self.ref?.child("data").observe(.value) { snapshot in
                 guard let snapshot = snapshot.value as? [String] else {
                     print("Error: 서버에 문제가 발생했습니다")
                     return
                 }
+
+                //MARK: - Firebase와 코어 데이터 갯수로 업데이트 상황을 확인
+                guard numberOfCoredata != snapshot.count else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        self.transitionToParkingView()
+                    }
+                    return
+                }
+
+                //MARK: - 최신 상태로 맞추기 위한 CoreData 삭제 및 추가
+                CoreDataManager.shared.deleteParkingPlaces()
 
                 DispatchQueue.main.async {
                     snapshot.forEach { dataString in
@@ -83,12 +88,16 @@ class LoadingViewController: UIViewController {
                         fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
                     }
 
-                    let newViewController = ParkingViewController()
-                    let navigationController = UINavigationController(rootViewController: newViewController)
-                    navigationController.modalPresentationStyle = .fullScreen
-                    self.present(navigationController, animated: true, completion: nil)
+                    self.transitionToParkingView()
                 }
             }
         }
+    }
+
+    private func transitionToParkingView() {
+        let newViewController = ParkingViewController()
+        let navigationController = UINavigationController(rootViewController: newViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        self.present(navigationController, animated: true, completion: nil)
     }
 }
