@@ -81,4 +81,23 @@ class CoreDataManager {
             }
         }
     }
+
+    func deleteParkingPlaces() {
+        guard let context = context else {
+            return
+        }
+
+        do {
+            let request = ParkingPlace.fetchRequest()
+            let objects = try context.fetch(request)
+            for object in objects {
+                context.delete(object)
+            }
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+
+        self.saveContext()
+    }
 }
